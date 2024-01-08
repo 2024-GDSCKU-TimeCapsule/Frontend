@@ -1,9 +1,16 @@
 import "./App.css";
 
+import Header from "./components/Layout/Header/Header";
+import Footer from "./components/Layout/Footer/Footer";
+
 function App() {
   return (
     <div className="App">
-      <p>이곳에 컴포넌트 추가</p>
+      <div className="App-container">
+        <Header />
+
+        <Footer />
+      </div>
     </div>
   );
 }
