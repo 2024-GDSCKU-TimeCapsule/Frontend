@@ -1,0 +1,24 @@
+.header-container {
+  border: 1px solid black;
+  height: 7.51vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.backIcon {
+  width: 3.3vw;
+  height: 3.3vh;
+  margin-right: 40vw;
+}
+.pageName {
+  font-family: "MyFont";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px; /* 357.143% */
+  letter-spacing: 3px;
+  opacity: 0.6;
+  position: absolute;
+}
