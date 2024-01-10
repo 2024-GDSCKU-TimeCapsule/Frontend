@@ -1,4 +1,4 @@
-.nickname-modal {
+.modal {
     width: 353px; /*353-42*2*/
     height: 267px;
     display: flex;
@@ -17,7 +17,7 @@
     /* margin: 192px 0 42px; */
 }
 
-.nickname-modal .title {
+.modal .title {
     color: #fff;
 
     text-align: center;
@@ -30,7 +30,7 @@
     opacity: 0.7;
 }
 
-.nickname-modal input {
+.modal input {
     width: 100%;
     box-sizing: border-box;
     height: 57px;
@@ -54,7 +54,7 @@
     margin-top: 30px;
 }
 
-.nickname-modal .buttons {
+.buttons {
     width: 100%;
     display: flex;
     justify-content: space-between;

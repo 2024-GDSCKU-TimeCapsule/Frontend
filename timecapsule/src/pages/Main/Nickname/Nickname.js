@@ -4,7 +4,7 @@ const Nickname = () => {
     return (
         <>
             <div className="container">
-                <div className="nickname-modal">
+                <div className="modal">
                     <div className="title">닉네임설정</div>
                     <div>
                         <input type="text" placeholder={nickname}></input>
