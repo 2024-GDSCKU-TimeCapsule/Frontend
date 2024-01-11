@@ -7,7 +7,7 @@
     height: 76.79vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 
     /* margin-top: 8.07vh; */

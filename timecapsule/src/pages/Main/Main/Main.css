@@ -1,0 +1,40 @@
+.dday-circle {
+    width: 89.82vw;
+    height: 89.82vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 353px;
+    border: 0.4px solid #fff;
+    background: linear-gradient(141deg, rgba(255, 255, 255, 0.07) 10.53%, rgba(255, 255, 255, 0.07) 86.28%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+
+    margin-top: 6.68vh;
+}
+
+.dday {
+    color: #fff;
+    text-align: center;
+    font-family: 'Post No Bills Jaffna Medium', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px; /* 78.125% */
+    letter-spacing: 8px;
+}
+
+.dday-text {
+    color: #fff;
+    text-align: center;
+    font-family: Product Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; /* 175% */
+    letter-spacing: 1px;
+
+    margin-top: 2.29vh;
+}
