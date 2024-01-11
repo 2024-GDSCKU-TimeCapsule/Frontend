@@ -1,13 +1,16 @@
 .container {
     /* background-color: pink; */
-    background-image: url(./img/자산\ 2ss\ 1.png);
-    width: 393px;
-    height: 852px;
-    flex-shrink: 0;
+    /* background-image: url(./img/자산\ 2ss\ 1.png); */
+    /* width: 393px; */
+    /* height: 852px; */
+    /* flex-shrink: 0; */
+    height: 76.79vh;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
+
+    /* margin-top: 8.07vh; */
 }
 
 .nickname {
@@ -20,7 +23,7 @@
     line-height: 36px; /* 138.462% */
     letter-spacing: 1px;
 
-    margin-top: 187px;
+    margin-top: 8.07vh;
 }
 
 .email {
@@ -33,7 +36,7 @@
     line-height: normal;
     text-decoration-line: underline;
 
-    margin-top: 10px;
+    margin-top: 1.26px;
 }
 .button1 {
     width: 159px;
@@ -52,11 +55,12 @@
     line-height: normal;
 
     margin: 0 auto;
-    margin-top: 101px;
+    margin-top: 5.04vh;
+    margin-bottom: 40.1vh;
 }
 
 .withdraw {
-    margin-top: 318px;
+    margin-bottom: 3.4vh;
     color: #fff;
     text-align: center;
     font-family: Inter;

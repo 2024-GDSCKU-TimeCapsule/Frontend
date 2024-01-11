@@ -10,13 +10,24 @@ import Withdraw from './pages/Main/Withdraw/Withdraw';
 function App() {
     return (
         <div className="App">
-            <div className="App-container">
+            <div className="App-container main">
                 <Header />
                 <Main />
+                <Footer />
+
+                <Header />
                 <Mypage />
-                <Nickname />
+                <Footer />
+
+                <Header />
                 <Withdraw />
                 <Footer />
+
+                <Header />
+                <Nickname />
+                <Footer />
+
+                <Main />
             </div>
         </div>
     );
