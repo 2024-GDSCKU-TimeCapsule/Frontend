@@ -1,5 +1,6 @@
 import "./App.css";
 
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
@@ -17,7 +18,10 @@ function App() {
 					<Routes>
 						<Route path="/" element={<SelectCapsule />} />
 						<Route path="/capsule" element={<SelectCapsule />} />
-						<Route path="/capsule/:id" element={<WriteCapsule />} />
+						<Route
+							path="/capsule/:capsule_name"
+							element={<WriteCapsule />}
+						/>
 					</Routes>
 				</BrowserRouter>
 				<Footer />
