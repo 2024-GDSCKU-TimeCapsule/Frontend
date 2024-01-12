@@ -100,3 +100,9 @@
     src: url('./static/fonts/Pretendard-Thin.otf');
     font-weight: 100;
 }
+
+@font-face {
+    font-family: 'Post No Bills Jaffna Medium';
+    src: url('./static/fonts/Post\ No\ Bills\ Jaffna\ Medium.ttf');
+    font-weight: 500;
+}

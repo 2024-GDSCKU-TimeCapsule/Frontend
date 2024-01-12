@@ -1,10 +1,6 @@
 .dday-circle {
     width: 89.82vw;
     height: 89.82vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 0;
     border-radius: 353px;
     border: 0.4px solid #fff;
@@ -15,10 +11,22 @@
     margin-top: 6.68vh;
 }
 
+.dday-progress {
+    /* width: 89.82vw; */
+    height: 89.82vw;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .dday {
     color: #fff;
     text-align: center;
-    font-family: 'Post No Bills Jaffna Medium', sans-serif;
+    font-family: 'Post No Bills Jaffna Medium';
     font-size: 64px;
     font-style: normal;
     font-weight: 500;
@@ -37,4 +45,43 @@
     letter-spacing: 1px;
 
     margin-top: 2.29vh;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 6.09vh;
+}
+
+.create {
+    /* position: absolute; */
+    width: 19.23vw;
+    height: 19.23vw;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.95;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+.menu {
+    position: absolute;
+    margin-top: 5.93vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mycapsule {
+    position: absolute;
+    top: 3.2vh;
+    left: 16vw;
+}
+.archiving {
+    position: absolute;
+    top: 3.2vh;
+    left: 69.72vw;
 }
