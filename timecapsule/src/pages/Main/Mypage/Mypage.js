@@ -1,5 +1,4 @@
 import './Mypage.css';
-// import background from "./img/자산 2ss 1.png"
 const Mypage = () => {
     const nickname = 'nickname';
     const email = 'email@korea.ac.kr';

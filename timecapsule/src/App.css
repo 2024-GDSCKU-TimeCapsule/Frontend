@@ -13,9 +13,6 @@
     margin: 0 auto;
 }
 
-.main {
-    background-image: url(./pages/Main/Mypage/img/자산\ 2ss\ 1.png);
-}
 /* 큰 화면, 가령 데스크탑 또는 랩톱의 뷰포트에 대한 스타일 */
 @media screen and (min-width: 393px) {
     .App-container {
@@ -30,15 +27,6 @@
         height: auto; /* 높이를 자동으로 조정 */
         /* 필요한 경우 추가 스타일 */
     }
-}
-
-.main-container {
-    background-image: url(./pages/Main/Mypage/img/자산\ 2ss\ 1.png);
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
 }
 
 /* 폰트 정의 */

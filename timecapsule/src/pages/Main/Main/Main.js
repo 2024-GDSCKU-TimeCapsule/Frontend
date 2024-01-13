@@ -4,13 +4,15 @@ import create from './img/Vector.svg';
 import mycapsule from './img/Union.svg';
 import archiving from './img/Group 22.svg';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-<style>import url('https://fonts.cdnfonts.com/css/post-no-bills-jaffna');</style>;
+import Header from '../../../components/Layout/Header/Header';
+import Footer from '../../../components/Layout/Footer/Footer';
 
 const Main = () => {
     const dday = 235;
     const progress = ((365 - dday) / 365) * 100;
     return (
-        <div className="container">
+        <div className="main-container">
+            <Header />
             <div className="dday-circle">
                 <CircularProgressbarWithChildren value={progress}>
                     <div className="dday">D-{dday}</div>
@@ -28,6 +30,7 @@ const Main = () => {
                     <img className="archiving" src={archiving} alt="archiving" />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
