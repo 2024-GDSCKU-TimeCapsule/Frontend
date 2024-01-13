@@ -1,0 +1,6 @@
+.styled-div {
+  height: 70px;
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+}
