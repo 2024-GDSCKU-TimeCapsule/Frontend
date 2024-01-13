@@ -7,20 +7,22 @@
     background: linear-gradient(141deg, rgba(255, 255, 255, 0.07) 10.53%, rgba(255, 255, 255, 0.07) 86.28%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(20px);
-
-    margin-top: 6.68vh;
-}
-
-.dday-progress {
-    /* width: 89.82vw; */
-    height: 89.82vw;
-    border-radius: 50%;
-    background: none;
-    border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-top: 6.68vh;
+}
+
+.CircularProgressbar {
+    width: 98vw;
+    height: 98vw;
+}
+
+.CircularProgressbar-path {
+    stroke: white;
+    stroke-width: 1;
 }
 
 .dday {

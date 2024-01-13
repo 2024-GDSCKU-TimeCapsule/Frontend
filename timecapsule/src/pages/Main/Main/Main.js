@@ -3,17 +3,19 @@ import menu from './img/Subtract.svg';
 import create from './img/Vector.svg';
 import mycapsule from './img/Union.svg';
 import archiving from './img/Group 22.svg';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 <style>import url('https://fonts.cdnfonts.com/css/post-no-bills-jaffna');</style>;
 
 const Main = () => {
     const dday = 235;
+    const progress = ((365 - dday) / 365) * 100;
     return (
         <div className="container">
             <div className="dday-circle">
-                <div className="dday-progress">
+                <CircularProgressbarWithChildren value={progress}>
                     <div className="dday">D-{dday}</div>
                     <div className="dday-text">Unsealed December 31, 2024</div>
-                </div>
+                </CircularProgressbarWithChildren>
             </div>
 
             <div className="nav">
