@@ -45,7 +45,6 @@ const Login = () => {
     }
   }
   useEffect(() => {
-    console.log(supabaseClient);
     async function checkLogin() {
       const authInfo = await supabaseClient.auth.getSession();
       const session = authInfo.data.session;

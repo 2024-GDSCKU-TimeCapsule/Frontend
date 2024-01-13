@@ -2,7 +2,6 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { createClient } from "@supabase/supabase-js";
 import "./Test.css";
 const Test = () => {
   const supabaseClient = useSupabaseClient();
