@@ -11,7 +11,9 @@ const Login = () => {
       const { data, error } = await supabaseClient.auth.signInWithOAuth({
         provider: "kakao",
         options: {
-          redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
+          redirectTo:
+            process.env
+              .REACT_APP_FRONTEND_REDIRECT_URL /* 로그인 후에 redirect 될 페이지 */,
         },
       });
 
@@ -34,12 +36,12 @@ const Login = () => {
       });
 
       if (error) {
-        console.error("Kakao OAuth sign-in error:", error.message);
+        console.error("Google OAuth sign-in error:", error.message);
       } else {
-        console.log("Kakao OAuth sign-in successful:", data);
+        console.log("Google OAuth sign-in successful:", data);
       }
     } catch (error) {
-      console.error("Unexpected error during Kakao OAuth sign-in:", error);
+      console.error("Unexpected error during Google OAuth sign-in:", error);
     }
   }
   useEffect(() => {
