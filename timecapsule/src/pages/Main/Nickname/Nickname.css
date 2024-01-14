@@ -1,6 +1,6 @@
-.nickname-modal {
-    width: 353px; /*353-42*2*/
-    height: 267px;
+.modal {
+    width: 89.82vw; /*353-42*2*/
+    height: 33.67vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,13 +11,14 @@
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(25px);
 
-    margin-top: 192px;
-    padding: 0 42px;
+    margin-top: 8.7vh;
+    margin-bottom: 23.46vh;
+    padding: 0 10.69vw;
     box-sizing: border-box;
     /* margin: 192px 0 42px; */
 }
 
-.nickname-modal .title {
+.modal .title {
     color: #fff;
 
     text-align: center;
@@ -26,14 +27,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 30px;
+    margin-top: 3.78vh;
     opacity: 0.7;
 }
 
-.nickname-modal input {
+.modal input {
     width: 100%;
     box-sizing: border-box;
-    height: 57px;
+    height: 7.19vh;
     flex-shrink: 0;
     border-radius: 11px;
     border: 0.4px solid #fff;
@@ -51,19 +52,19 @@
     letter-spacing: 1px;
     opacity: 0.9;
 
-    margin-top: 30px;
+    margin-top: 3.78vh;
 }
 
-.nickname-modal .buttons {
+.buttons {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 55px 0 0 0;
+    margin: 6.94vh 0 0 0;
 }
 
 .button2 {
-    width: 119px;
-    height: 39px;
+    width: 30.28vw;
+    height: 4.92vh;
     flex-shrink: 0;
     border-radius: 100px;
     opacity: 0.9;
