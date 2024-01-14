@@ -8,12 +8,6 @@ function App() {
     return (
         <div className="App">
             <div className="App-container">
-                <Main />
-
-                <Mypage />
-
-                <Withdraw />
-
                 <Nickname />
             </div>
         </div>

@@ -6,7 +6,7 @@ const Mypage = () => {
     const email = 'email@korea.ac.kr';
     return (
         <>
-            <div className="container">
+            <div className="main-container">
                 <Header />
                 <div class="nickname">{nickname} 님</div>
                 <div class="email">{email}</div>

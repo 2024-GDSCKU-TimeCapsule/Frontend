@@ -1,8 +1,8 @@
-.main {
+.dark {
     position: relative;
     z-index: -2;
 }
-.none::before {
+.dark::before {
     position: absolute;
     content: '';
     width: 100%;

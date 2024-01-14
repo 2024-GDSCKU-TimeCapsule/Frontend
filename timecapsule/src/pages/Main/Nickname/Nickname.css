@@ -1,6 +1,6 @@
 .modal {
-    width: 353px; /*353-42*2*/
-    height: 267px;
+    width: 89.82vw; /*353-42*2*/
+    height: 33.67vh;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,18 +1,3 @@
-.container {
-    /* background-color: pink; */
-    background-image: url(../Main/img/자산\ 2ss\ 1.png);
-    /* width: 393px; */
-    /* height: 852px; */
-    /* flex-shrink: 0; */
-    height: 76.79vh;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-
-    /* margin-top: 8.07vh; */
-}
-
 .nickname {
     color: #fff;
     text-align: center;

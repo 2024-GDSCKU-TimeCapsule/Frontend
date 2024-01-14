@@ -4,7 +4,7 @@ import Footer from '../../../components/Layout/Footer/Footer';
 const Withdraw = () => {
     return (
         <>
-            <div className="container">
+            <div className="main-container dark">
                 <Header />
                 <div className="modal-background">
                     <div className="withdraw-modal">

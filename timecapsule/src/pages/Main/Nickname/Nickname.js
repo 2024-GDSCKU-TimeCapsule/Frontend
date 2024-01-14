@@ -5,7 +5,7 @@ const Nickname = () => {
     const nickname = 'nickname';
     return (
         <>
-            <div className="container">
+            <div className="main-container">
                 <Header />
                 <div className="modal">
                     <div className="title">닉네임설정</div>
