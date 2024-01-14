@@ -15,7 +15,7 @@ function App() {
       <SupabaseProvider>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/main" element={<Test />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </SupabaseProvider>
     </div>

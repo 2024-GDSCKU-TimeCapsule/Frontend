@@ -204,7 +204,7 @@ const Test = () => {
       <div onClick={() => insertUserData()} className="styled-div ">
         유저 닉네임 추가 테스트
         <br />
-        (예시라서 따로 닉네임 입력안해도 됨)
+        (예시라서 따로 닉네임 입력안해도 됨 : 이미 입력되어있으면 안될 것임)
       </div>
       <div onClick={() => updateNickname()} className="styled-div ">
         유저 닉네임 업데이트 테스트 <br />

@@ -60,7 +60,10 @@ const Login = () => {
 
   return (
     <>
-      <div>로그인페이지</div>
+      <div>
+        로그인페이지 (로그인 직후 닉네임을 설정해야 사용자 정보 가져오는데
+        오류가 발생하지 않습니다)
+      </div>
       <div onClick={signInWithKakao}>카카오 로그인</div>
       <div onClick={signInWithGoogle}>구글 로그인</div>
     </>

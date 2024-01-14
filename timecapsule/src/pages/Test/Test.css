@@ -3,4 +3,7 @@
   display: flex;
   border: 1px solid black;
   align-items: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 10px;
 }
