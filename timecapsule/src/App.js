@@ -1,4 +1,3 @@
-
 import "./App.css";
 
 import React from "react";
@@ -17,22 +16,21 @@ function App() {
 			<div className="App-container">
 				<BrowserRouter>
 					<Routes>
-						<Route path="/" element={<SelectCapsule />} />
+						<Route path="/" element={<Main />} />
 						<Route path="/capsule" element={<SelectCapsule />} />
 						<Route
 							path="/capsule/:capsule_name"
 							element={<WriteCapsule />}
 						/>
+						<Route path="/main" element={<Main />} />
+						<Route path="/mypage" element={<Mypage />} />
+						<Route path="/nickname" element={<Nickname />} />
+						<Route path="/withdraw" element={<Withdraw />} />
 					</Routes>
-					{/* <Main />
-                <Mypage />
-                <Nickname />
-                <Withdraw /> */}
 				</BrowserRouter>
 			</div>
 		</div>
 	);
-			}
-
+}
 
 export default App;
