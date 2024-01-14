@@ -9,6 +9,8 @@ import Main from "./pages/Main/Main/Main";
 import Mypage from "./pages/Main/Mypage/Mypage";
 import Nickname from "./pages/Main/Nickname/Nickname";
 import Withdraw from "./pages/Main/Withdraw/Withdraw";
+import Capsulearchiving from "./pages/Mycapsule/Capsulearchiving/Capsulearchiving";
+import Mycapsule from "./pages/Mycapsule/Mycapsule/Mycapsule";
 
 function App() {
 	return (
@@ -26,6 +28,11 @@ function App() {
 						<Route path="/mypage" element={<Mypage />} />
 						<Route path="/nickname" element={<Nickname />} />
 						<Route path="/withdraw" element={<Withdraw />} />
+						<Route
+							path="/capsulearchiving"
+							element={<Capsulearchiving />}
+						/>
+						<Route path="/mycapsule" element={<Mycapsule />} />
 					</Routes>
 				</BrowserRouter>
 			</div>
