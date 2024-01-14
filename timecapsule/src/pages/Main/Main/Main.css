@@ -42,7 +42,7 @@
     stroke-width: 1;
 }
 
-.dday {
+.main-dday {
     color: #fff;
     text-align: center;
     font-family: 'Post No Bills Jaffna Medium';
@@ -85,6 +85,10 @@
     display: flex;
     justify-content: center;
     /* text-align: center; */
+}
+
+.create img {
+    width: 50%;
 }
 
 .menu {
