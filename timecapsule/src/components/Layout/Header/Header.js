@@ -2,11 +2,20 @@ import "./Header.css";
 import React from "react";
 
 import backIcon from "./img/backIcon.svg";
-const Header = ({ pageName = "MY CAPSULE" }) => {
+const Header = ({ pageName = "MY CAPSULE", backURL = "/main" }) => {
 	return (
 		<>
 			<div className="header-container">
-				<img className="backIcon" src={backIcon} alt="backIcon" />
+				<button
+					className="backButton"
+					type="button"
+					onClick={() => {
+						window.location.href = backURL;
+					}}
+				>
+					<img className="backIcon" src={backIcon} alt="backIcon" />
+				</button>
+
 				<div className="pageName">{pageName}</div>
 			</div>
 		</>
