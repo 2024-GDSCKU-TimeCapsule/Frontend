@@ -63,14 +63,12 @@ function SelectCapsule() {
 									}[index]
 								}
 							</div>
-
 							<img src={capsule} alt="goal capsule" />
 						</SwiperSlide>
 					)
 				)}
 			</Swiper>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="capsule_name">Capsule name</label>
+			<form onSubmit={handleSubmit} className="tmp">
 				<input
 					type="text"
 					id="capsule_name"
@@ -88,7 +86,7 @@ function SelectCapsule() {
 					+ 타임캡슐 만들기
 				</button>
 			</form>
-			<Footer />
+			<Footer textColor="#0000008C" />
 		</div>
 	);
 }
