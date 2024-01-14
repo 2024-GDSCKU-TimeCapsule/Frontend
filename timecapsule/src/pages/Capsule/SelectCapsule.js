@@ -28,7 +28,7 @@ function SelectCapsule() {
 
 	return (
 		<div className="select-capsule">
-			<Header />
+			<Header pageName="TIME CAPSULE" />
 			<div>
 				<div className="swiper-title">{capsuleName.toUpperCase()}</div>
 				<div className="swiper-subtitle">1년 뒤 나에게 보내는 선물</div>
