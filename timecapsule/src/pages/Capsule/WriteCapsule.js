@@ -10,12 +10,12 @@ import Footer from "../../components/Layout/Footer/Footer";
 
 function WriteCapsule() {
 	const color = {
-		goal: "#9E93F1",
-		memory: "#EF93B1",
+		goals: "#EF93B1",
+		memory: "#9E93F1",
 		letter: "#79D1DA",
 	};
 	const { capsule_name } = useParams();
-	const [title, setTitle] = useState("제목을 입력하세요");
+	const [title, setTitle] = useState("제목을 작성해주세요. (10자 이내)");
 	const [content, setContent] = useState("내용을 입력하세요");
 	const [image, setImage] = useState([]);
 
@@ -47,17 +47,26 @@ function WriteCapsule() {
 	return (
 		<div className={`write-capsule background-${capsule_name}`}>
 			<div>
-				<Header />
+				<Header backURL="/capsule" />
 				<form onSubmit={handleSubmit} className="write-field">
-					<textarea
-						className="capsule-title"
-						id="title"
-						name="title"
-						rows={1}
-						value={title}
-						onChange={handleTitleChange}
-					/>
-					<hr className="line" />
+					<div className="title-container">
+						<textarea
+							className="capsule-title"
+							id="title"
+							name="title"
+							rows={1}
+							value={title}
+							onChange={handleTitleChange}
+						/>
+						<button
+							type="button"
+							className="add-image-button"
+							onClick={handleAddImageClick}
+						>
+							<AddImage fill={color[capsule_name]} />
+						</button>
+					</div>
+					<div style={{ height: "10px" }} />
 					<textarea
 						id="content"
 						name="content"
@@ -67,7 +76,7 @@ function WriteCapsule() {
 						rows={Math.max(
 							Math.ceil((content.length + 1) / 40) +
 								content.split("\n").length,
-							10
+							12
 						)}
 					/>
 					{image.map((file, index) => (
@@ -99,14 +108,6 @@ function WriteCapsule() {
 						style={{ display: "none" }}
 						onChange={handleImageChange}
 					/>
-					<button
-						type="button"
-						className="add-image-button"
-						style={{ background: color[capsule_name] }}
-						onClick={handleAddImageClick}
-					>
-						<AddImage />
-					</button>
 
 					<button
 						type="submit"
