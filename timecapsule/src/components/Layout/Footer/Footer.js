@@ -14,7 +14,6 @@ const Footer = ({ textColor = "#fff" }) => {
 			>
 				Made by GDSC Korea Univ.
 			</div>
-
 			<a
 				href="https://www.instagram.com/gdsc.koreauniv/"
 				id="insta-link"
@@ -26,7 +25,13 @@ const Footer = ({ textColor = "#fff" }) => {
 				<div style={{ width: "2px" }}></div>
 				GDSC.koreauniv
 			</a>
-			<a href="https://www.instagram.com/gdscku.project/" id="insta-link">
+			<a
+				href="https://www.instagram.com/gdscku.project/"
+				id="insta-link"
+				style={{
+					color: textColor,
+				}}
+			>
 				<Instagram fill={textColor} />
 				<div style={{ width: "2px" }}></div>
 				GDSCKU.project
