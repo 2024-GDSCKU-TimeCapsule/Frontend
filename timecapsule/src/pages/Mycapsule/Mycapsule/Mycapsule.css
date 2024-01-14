@@ -220,6 +220,21 @@
 
 .modal {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 293px;
+  height: 159px;
+  top: 290px;
+  left: 50px;
+  border-radius: 22px;
+  background-color: #f3f3f3;
+  position: absolute;
+} /* 이것도 아래랑 코드가 같은데 왜 얘는 이상하게 작동됨?? */
+
+.modal2 {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -231,7 +246,7 @@
   border-radius: 22px;
   background-color: #f3f3f3;
   position: absolute;
-}
+} /* 이게 진짜 모달창임 */
 
 .blurbutton {
   bottom: 200px;
@@ -251,4 +266,42 @@
   background-color: #7c6ee0;
   color: #ffffff;
   position: absolute;
+  border: none;
+}
+
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.text1 {
+  width: 107px;
+  height: 24px;
+  top: 23px;
+  left: 93px;
+  font-family: Noto Sans KR Regular;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  position: absolute;
+  color: #7c6ee0;
+}
+
+.text2 {
+  width: 139px;
+  height: 68px;
+  top: 355px;
+  left: 128px;
+  opacity: 0.7px;
+  color: #000;
+
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
 }
