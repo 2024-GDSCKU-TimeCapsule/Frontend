@@ -1,8 +1,11 @@
 import './Withdraw.css';
+import Header from '../../../components/Layout/Header/Header';
+import Footer from '../../../components/Layout/Footer/Footer';
 const Withdraw = () => {
     return (
         <>
             <div className="container">
+                <Header />
                 <div className="modal-background">
                     <div className="withdraw-modal">
                         <div className="content">
@@ -17,6 +20,7 @@ const Withdraw = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     );

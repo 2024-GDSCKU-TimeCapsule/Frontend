@@ -1,9 +1,12 @@
 import './Nickname.css';
+import Header from '../../../components/Layout/Header/Header';
+import Footer from '../../../components/Layout/Footer/Footer';
 const Nickname = () => {
     const nickname = 'nickname';
     return (
         <>
             <div className="container">
+                <Header />
                 <div className="modal">
                     <div className="title">닉네임설정</div>
                     <div>
@@ -15,6 +18,7 @@ const Nickname = () => {
                     </div>
                 </div>
                 <div class="withdraw">계정 탈퇴</div>
+                <Footer />
             </div>
         </>
     );
