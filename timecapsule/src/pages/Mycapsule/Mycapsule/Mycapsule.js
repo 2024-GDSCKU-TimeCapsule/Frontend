@@ -46,7 +46,7 @@ function Mycapsule() {
           </div>
         </div>
         {blur === "blurring" && <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} />}
-        {modal === "modal" && <Modal />}
+        {modal === "modal2" && <Modal />}
       </div>
       <Blurbutton blur={blur} setBlur={setBlur} setModal={setModal} setContainer={setContainer} />
     </>
@@ -110,7 +110,7 @@ function Stillsealed({ modal, setModal, setContainer }) {
   return (
     <div
       onClick={() => {
-        setModal("modal");
+        setModal("modal2");
         setContainer("mycapsule-container-modal");
       }}>
       <div>
@@ -125,14 +125,14 @@ function Modal() {
   return (
     <>
       <div
-        className="modal"
+        className="modal2"
         onClick={(e) => {
           e.stopPropagation();
         }}>
         <div>
-          <div>봉인된 타임캡슐</div>
-          <div>봉인 해제까지 남은 시간</div>
-          <div>D-235</div>
+          <div className="text1">봉인된 타임캡슐</div>
+          <div className="text2">봉인 해제까지 남은 시간</div>
+          <div className="text3">D-235</div>
         </div>
       </div>
       <div>
