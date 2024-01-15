@@ -2,6 +2,8 @@
     width: 100vw;
     height: 100vh;
     background-image: url(./img/자산\ 2ss\ 1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -10,9 +12,15 @@
     position: relative;
 }
 
-.footer-container {
+.main-footer {
     position: absolute;
     bottom: 0px;
+}
+
+.setting-icon {
+    position: absolute;
+    top: 3.4vh;
+    right: 5.09vw;
 }
 
 .dday-circle {
@@ -42,7 +50,7 @@
     stroke-width: 1;
 }
 
-.dday {
+.main-dday {
     color: #fff;
     text-align: center;
     font-family: 'Post No Bills Jaffna Medium';
@@ -85,6 +93,10 @@
     display: flex;
     justify-content: center;
     /* text-align: center; */
+}
+
+.create img {
+    width: 50%;
 }
 
 .menu {

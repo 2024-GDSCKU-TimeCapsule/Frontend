@@ -7,18 +7,36 @@ const Nickname = () => {
         <>
             <div className="main-container">
                 <Header />
-                <div className="modal">
+                <div className="main-modal">
                     <div className="title">닉네임설정</div>
                     <div>
                         <input type="text" placeholder={nickname}></input>
                     </div>
                     <div className="buttons">
-                        <button className="button2 white">확인</button>
-                        <button className="button2">취소</button>
+                        <button
+                            type="submit"
+                            className="button2 white"
+                            onClick={() => {
+                                window.location.href = '/mypage';
+                            }}
+                        >
+                            확인
+                        </button>
+                        <button
+                            type="button"
+                            className="button2"
+                            onClick={() => {
+                                window.location.href = '/mypage';
+                            }}
+                        >
+                            취소
+                        </button>
                     </div>
                 </div>
                 <div class="withdraw">계정 탈퇴</div>
-                <Footer />
+                <div className="main-footer">
+                    <Footer />
+                </div>
             </div>
         </>
     );

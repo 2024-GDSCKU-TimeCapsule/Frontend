@@ -30,17 +30,21 @@
 	display: flex;
 	width: 200px;
 	height: 50px;
-	background-color: white important!;
+	background: #fff;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	margin-top: 20px;
 	border-radius: 30px;
 	border: none;
 	cursor: pointer;
-	color: #00000077;
-	font-size: 15px;
-	font-weight: bold;
+	color: rgba(0, 0, 0, 0.5);
+
+	text-align: center;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
 }
 
 .swiper {
@@ -53,7 +57,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: 8vw;
+	margin-left: 3vh;
 }
 
 .swiper-slide {
@@ -64,12 +68,24 @@
 	text-align: center;
 	font-size: 18px;
 	background: none;
+	opacity: 0.3;
+}
+
+.swiper-slide-active {
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 18px;
+	background: none;
+	opacity: 1;
 }
 
 .swiper-slide img {
 	display: block;
-	width: 90vw;
-	height: auto;
+	width: auto;
+	height: 50vh;
 	object-fit: cover;
 }
 
@@ -78,8 +94,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 90vw;
-	margin-bottom: 20px;
+
 	color: #000;
 	text-align: center;
 	font-family: Gugi;
@@ -95,7 +110,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 90vw;
+
 	color: #000;
 
 	text-align: center;

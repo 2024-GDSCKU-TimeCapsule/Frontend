@@ -92,3 +92,15 @@
 	src: url("./static/fonts/Post\ No\ Bills\ Jaffna\ Medium.ttf");
 	font-weight: 500;
 }
+
+@font-face {
+	font-family: "Noto Sans KR";
+	src: url("./static/fonts/NotoSansKR-Regular.ttf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Inter";
+	src: url("./static/fonts/Inter-Regular.ttf");
+	font-weight: 400;
+}

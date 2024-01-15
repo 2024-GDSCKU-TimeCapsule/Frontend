@@ -1,4 +1,4 @@
-.modal {
+.main-modal {
     width: 89.82vw; /*353-42*2*/
     height: 33.67vh;
     display: flex;
@@ -18,7 +18,7 @@
     /* margin: 192px 0 42px; */
 }
 
-.modal .title {
+.main-modal .title {
     color: #fff;
 
     text-align: center;
@@ -31,7 +31,7 @@
     opacity: 0.7;
 }
 
-.modal input {
+.main-modal input {
     width: 100%;
     box-sizing: border-box;
     height: 7.19vh;
