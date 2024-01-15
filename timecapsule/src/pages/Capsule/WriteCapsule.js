@@ -147,21 +147,19 @@ function WriteCapsule() {
 
 function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 	const [finish, setFinish] = useState(false);
+	const [userID, setUserID] = useState({});
+	const [user, setUser] = useState({
+		id: "",
+		nickname: "",
+		userId: "",
+	});
 	const color = {
 		goals: "#F285A8",
 		memory: "#7C6EE0",
 		letter: "#42BCBC",
 	};
 	const time = dayjs("2024-12-31").diff(dayjs(), "day");
-
 	const supabaseClient = useSupabaseClient();
-	const [user, setUser] = useState({
-		id: "",
-		nickname: "",
-		userId: "",
-	});
-
-	const [userID, setUserID] = useState("");
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -178,13 +176,6 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 		}
 		checkLogin();
 
-		/*
-		const [user, setUser] = useState({
-			id: "",
-			nickname: "",
-			userId: "",
-		});
-		*/
 		async function getUserData() {
 			await supabaseClient.auth.getUser().then(async (value) => {
 				if (value.data?.user) {
@@ -195,8 +186,7 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 					if (error) {
 						console.log(error);
 					} else {
-						setUserID(value.data.user.id.toString());
-						console.log(userID);
+						setUserID(value.data.user.id);
 					}
 				}
 			});
