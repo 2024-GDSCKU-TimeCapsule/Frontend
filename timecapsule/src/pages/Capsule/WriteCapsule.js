@@ -68,7 +68,6 @@ function WriteCapsule() {
 						<div className="title-container">
 							<textarea
 								className="capsule-title"
-								id="title"
 								name="title"
 								rows={1}
 								value={title}
@@ -84,7 +83,6 @@ function WriteCapsule() {
 						</div>
 						<div style={{ height: "10px" }} />
 						<textarea
-							id="content"
 							name="content"
 							className="capsule-content"
 							value={content}

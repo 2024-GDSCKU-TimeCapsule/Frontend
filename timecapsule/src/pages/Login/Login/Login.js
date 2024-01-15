@@ -4,6 +4,8 @@ import image15 from "./img/image-15.png";
 import instagram from "./img/instagram.svg";
 import ellipse from "./img/ellipse4.svg";
 
+import Footer from "../../../components/Layout/Footer/Footer";
+
 import googleLoginButton from "./img/web_light_sq_SU.svg";
 import googleLoginImg from "./img/googleLoginImg.svg";
 import kakaoLoginButton from "./img/kakao_login_medium_narrow.png";
@@ -15,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 import "./Login.css";
-import SupabaseProvider from "../../../SupabaseProvider";
+
 const Login = () => {
   //메인 화면의 D-day 날짜 변경 코드
   const calculateDaysLeft = () => {
@@ -100,39 +102,26 @@ const Login = () => {
         </div>
         <div id="unsealed-date">Unsealed December 31, 2024</div>
 
-        <img
-          className="googleButton"
-          src={googleLoginImg}
-          alt="google-login-button"
-          onClick={signInWithGoogle}
-        />
-        <img
-          className="kakaoButton"
-          src={kakaoLoginButton}
-          alt="kakao-login-button"
-          onClick={signInWithKakao}
-        />
-        {/* <div className="socialLoginButton" onClick={signInWithKakao}>
+        <div className="sns">
+          <img
+            className="googleButton"
+            src={googleLoginImg}
+            alt="google-login-button"
+            onClick={signInWithGoogle}
+          />
+          <img
+            className="kakaoButton"
+            src={kakaoLoginButton}
+            alt="kakao-login-button"
+            onClick={signInWithKakao}
+          />
+          {/* <div className="socialLoginButton" onClick={signInWithKakao}>
           카카오 로그인
-        </div>
-        <div className="socialLoginButton" onClick={signInWithGoogle}>
+		  </div>
+		  <div className="socialLoginButton" onClick={signInWithGoogle}>
           구글 로그인
         </div> */}
-        <div id="footer">
-          <div id="MadeBy">Made by GDSC Korea Univ.</div>
-          <div id="link">
-            <a href="https://www.instagram.com/gdsc.koreauniv/" id="insta-link">
-              <img src={instagram} id="instagram" alt="instagram" />
-              <div style={{ width: "2px" }}></div>
-              GDSC.koreauniv
-            </a>
-            <div style={{ width: "10px" }}></div>
-            <a href="https://www.instagram.com/gdscku.project/" id="insta-link">
-              <img src={instagram} id="instagram" alt="instagram" />
-              <div style={{ width: "2px" }}></div>
-              GDSCKU.project
-            </a>
-          </div>
+          <Footer />
         </div>
       </div>
     </div>
