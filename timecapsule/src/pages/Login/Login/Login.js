@@ -19,119 +19,113 @@ import { useEffect } from "react";
 import "./Login.css";
 
 const Login = () => {
-	//메인 화면의 D-day 날짜 변경 코드
-	const calculateDaysLeft = () => {
-		const targetDate = new Date("2024-12-31");
-		const currentDate = new Date();
-		const timeDiff = targetDate - currentDate;
-		return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-	};
+  //메인 화면의 D-day 날짜 변경 코드
+  const calculateDaysLeft = () => {
+    const targetDate = new Date("2024-12-31");
+    const currentDate = new Date();
+    const timeDiff = targetDate - currentDate;
+    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  };
 
-	const supabaseClient = useSupabaseClient();
-	const navigate = useNavigate();
-	async function signInWithKakao() {
-		try {
-			const { data, error } = await supabaseClient.auth.signInWithOAuth({
-				provider: "kakao",
-				options: {
-					redirectTo:
-						process.env
-							.REACT_APP_FRONTEND_REDIRECT_URL /* 로그인 후에 redirect 될 페이지 */,
-				},
-			});
+  const supabaseClient = useSupabaseClient();
+  const navigate = useNavigate();
+  async function signInWithKakao() {
+    try {
+      const { data, error } = await supabaseClient.auth.signInWithOAuth({
+        provider: "kakao",
+        options: {
+          redirectTo:
+            process.env
+              .REACT_APP_FRONTEND_REDIRECT_URL /* 로그인 후에 redirect 될 페이지 */,
+        },
+      });
 
-			if (error) {
-				console.error("Kakao OAuth sign-in error:", error.message);
-			} else {
-				console.log("Kakao OAuth sign-in successful:", data);
-			}
-		} catch (error) {
-			console.error(
-				"Unexpected error during Kakao OAuth sign-in:",
-				error
-			);
-		}
-	}
-	async function signInWithGoogle() {
-		try {
-			console.log("잘 읽어오는지 테스트");
-			console.log(process.env.useSupabaseClient);
-			const { data, error } = await supabaseClient.auth.signInWithOAuth({
-				provider: "google",
-				options: {
-					redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
-				},
-			});
-			if (error) {
-				console.error("Google OAuth sign-in error:", error.message);
-			} else {
-				console.log("Google OAuth sign-in successful:", data);
-			}
-		} catch (error) {
-			console.error(
-				"Unexpected error during Google OAuth sign-in:",
-				error
-			);
-		}
-	}
-	// useEffect(() => {
-	//   async function checkLogin() {
-	//     const authInfo = await supabaseClient.auth.getSession();
-	//     const session = authInfo.data.session;
-	//     if (session == null) {
-	//       console.log("로그인 해주세요");
-	//     } else {
-	//       console.log("이미 로그인 되었습니다");
-	//       navigate("/main");
-	//     }
-	//   }
-	//   checkLogin();
-	// }, [supabaseClient]);
+      if (error) {
+        console.error("Kakao OAuth sign-in error:", error.message);
+      } else {
+        console.log("Kakao OAuth sign-in successful:", data);
+      }
+    } catch (error) {
+      console.error("Unexpected error during Kakao OAuth sign-in:", error);
+    }
+  }
+  async function signInWithGoogle() {
+    try {
+      console.log("잘 읽어오는지 테스트");
+      console.log(process.env.useSupabaseClient);
+      const { data, error } = await supabaseClient.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
+        },
+      });
+      if (error) {
+        console.error("Google OAuth sign-in error:", error.message);
+      } else {
+        console.log("Google OAuth sign-in successful:", data);
+      }
+    } catch (error) {
+      console.error("Unexpected error during Google OAuth sign-in:", error);
+    }
+  }
+  useEffect(() => {
+    async function checkLogin() {
+      const authInfo = await supabaseClient.auth.getSession();
+      const session = authInfo.data.session;
+      if (session == null) {
+        console.log("로그인 해주세요");
+      } else {
+        console.log("이미 로그인 되었습니다");
+        navigate("/main");
+      }
+    }
+    checkLogin();
+  }, [supabaseClient]);
 
-	return (
-		<div className="componentBackground">
-			<div id="page">
-				<img src={image13} id="image-13" alt="capsule-1" />
-				<img src={image12} id="image-12" alt="capsule-2" />
-				<img src={image15} id="image-15" alt="capsule-3" />
-				<img src={ellipse} id="ellipse" alt="ellipse" />
+  return (
+    <div className="componentBackground">
+      <div id="page">
+        <img src={image13} id="image-13" alt="capsule-1" />
+        <img src={image12} id="image-12" alt="capsule-2" />
+        <img src={image15} id="image-15" alt="capsule-3" />
+        <img src={ellipse} id="ellipse" alt="ellipse" />
 
-				<div id="content">
-					<div id="title">
-						TIME
-						<br />
-						CAPSULE
-					</div>
-					<div id="description">1년 뒤 나에게 보내는 선물</div>
-					<hr id="white-line" />
-					<div id="d-day">D-{calculateDaysLeft()}</div>
-				</div>
-				<div id="unsealed-date">Unsealed December 31, 2024</div>
+        <div id="content">
+          <div id="title">
+            TIME
+            <br />
+            CAPSULE
+          </div>
+          <div id="description">1년 뒤 나에게 보내는 선물</div>
+          <hr id="white-line" />
+          <div id="d-day">D-{calculateDaysLeft()}</div>
+        </div>
+        <div id="unsealed-date">Unsealed December 31, 2024</div>
 
-				<div className="sns">
-					<img
-						className="googleButton"
-						src={googleLoginImg}
-						alt="google-login-button"
-						onClick={signInWithGoogle}
-					/>
-					<img
-						className="kakaoButton"
-						src={kakaoLoginButton}
-						alt="kakao-login-button"
-						onClick={signInWithKakao}
-					/>
-					{/* <div className="socialLoginButton" onClick={signInWithKakao}>
+        <div className="sns">
+          <img
+            className="googleButton"
+            src={googleLoginImg}
+            alt="google-login-button"
+            onClick={signInWithGoogle}
+          />
+          <img
+            className="kakaoButton"
+            src={kakaoLoginButton}
+            alt="kakao-login-button"
+            onClick={signInWithKakao}
+          />
+          {/* <div className="socialLoginButton" onClick={signInWithKakao}>
           카카오 로그인
 		  </div>
 		  <div className="socialLoginButton" onClick={signInWithGoogle}>
           구글 로그인
         </div> */}
-					<Footer />
-				</div>
-			</div>
-		</div>
-	);
+          <Footer />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;
