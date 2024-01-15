@@ -11,9 +11,9 @@ import Nickname from "./pages/Main/Nickname/Nickname";
 import Withdraw from "./pages/Main/Withdraw/Withdraw";
 import Capsulearchiving from "./pages/Mycapsule/Capsulearchiving/Capsulearchiving";
 import Mycapsule from "./pages/Mycapsule/Mycapsule/Mycapsule";
-import Login from "./pages/Login/Login/Login";
 import SupabaseProvider from "./SupabaseProvider";
 import Policy from "./pages/Login/Policy/Policy";
+import Login from "./pages/Login/Login/Login";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <SupabaseProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/login" elemen={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/policy" element={<Policy />} />
               <Route path="/" element={<Main />} />
               <Route path="/capsule" element={<SelectCapsule />} />
