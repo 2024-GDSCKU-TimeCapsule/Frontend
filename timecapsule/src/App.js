@@ -11,33 +11,34 @@ import Nickname from "./pages/Main/Nickname/Nickname";
 import Withdraw from "./pages/Main/Withdraw/Withdraw";
 import Capsulearchiving from "./pages/Mycapsule/Capsulearchiving/Capsulearchiving";
 import Mycapsule from "./pages/Mycapsule/Mycapsule/Mycapsule";
+import Login from "./pages/Login/Login/Login";
+import SupabaseProvider from "./SupabaseProvider";
+import Policy from "./pages/Login/Policy/Policy";
 
 function App() {
-	return (
-		<div className="App">
-			<div className="App-container">
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<Main />} />
-						<Route path="/capsule" element={<SelectCapsule />} />
-						<Route
-							path="/capsule/:capsule_name"
-							element={<WriteCapsule />}
-						/>
-						<Route path="/main" element={<Main />} />
-						<Route path="/mypage" element={<Mypage />} />
-						<Route path="/nickname" element={<Nickname />} />
-						<Route path="/withdraw" element={<Withdraw />} />
-						<Route
-							path="/capsulearchiving"
-							element={<Capsulearchiving />}
-						/>
-						<Route path="/mycapsule" element={<Mycapsule />} />
-					</Routes>
-				</BrowserRouter>
-			</div>
-		</div>
-	);
+  return (
+    <div className="App">
+      <div className="App-container">
+        <SupabaseProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" elemen={<Login />} />
+              <Route path="/policy" element={<Policy />} />
+              <Route path="/" element={<Main />} />
+              <Route path="/capsule" element={<SelectCapsule />} />
+              <Route path="/capsule/:capsule_name" element={<WriteCapsule />} />
+              <Route path="/main" element={<Main />} />
+              <Route path="/mypage" element={<Mypage />} />
+              <Route path="/nickname" element={<Nickname />} />
+              <Route path="/withdraw" element={<Withdraw />} />
+              <Route path="/capsulearchiving" element={<Capsulearchiving />} />
+              <Route path="/mycapsule" element={<Mycapsule />} />
+            </Routes>
+          </BrowserRouter>
+        </SupabaseProvider>
+      </div>
+    </div>
+  );
 }
 
 export default App;
