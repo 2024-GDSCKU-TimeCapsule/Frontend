@@ -66,19 +66,19 @@ const Login = () => {
       console.error("Unexpected error during Google OAuth sign-in:", error);
     }
   }
-  // useEffect(() => {
-  //   async function checkLogin() {
-  //     const authInfo = await supabaseClient.auth.getSession();
-  //     const session = authInfo.data.session;
-  //     if (session == null) {
-  //       console.log("로그인 해주세요");
-  //     } else {
-  //       console.log("이미 로그인 되었습니다");
-  //       navigate("/main");
-  //     }
-  //   }
-  //   checkLogin();
-  // }, [supabaseClient]);
+  useEffect(() => {
+    async function checkLogin() {
+      const authInfo = await supabaseClient.auth.getSession();
+      const session = authInfo.data.session;
+      if (session == null) {
+        console.log("로그인 해주세요");
+      } else {
+        console.log("이미 로그인 되었습니다");
+        navigate("/main");
+      }
+    }
+    checkLogin();
+  }, [supabaseClient]);
 
   return (
     <div className="componentBackground">
