@@ -1,6 +1,8 @@
 import "./WriteCapsule.css";
 import React, { useState, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import dayjs from "dayjs";
 
 import { ReactComponent as Lock } from "./images/lock.svg";
@@ -69,9 +71,9 @@ function WriteCapsule() {
 							<textarea
 								className="capsule-title"
 								name="title"
-								rows={1}
 								value={title}
 								onChange={handleTitleChange}
+								rows={1}
 							/>
 							<button
 								type="button"
@@ -152,6 +154,56 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 	};
 	const time = dayjs("2024-12-31").diff(dayjs(), "day");
 
+	const supabaseClient = useSupabaseClient();
+	const [user, setUser] = useState({
+		id: "",
+		nickname: "",
+		userId: "",
+	});
+
+	const [userID, setUserID] = useState("");
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		async function checkLogin() {
+			const authInfo = await supabaseClient.auth.getSession();
+			const session = authInfo.data.session;
+
+			if (session == null) {
+				console.log("log in fail");
+				navigate("/login");
+			} else {
+				console.log("log in success");
+			}
+		}
+		checkLogin();
+
+		/*
+		const [user, setUser] = useState({
+			id: "",
+			nickname: "",
+			userId: "",
+		});
+		*/
+		async function getUserData() {
+			await supabaseClient.auth.getUser().then(async (value) => {
+				if (value.data?.user) {
+					const { data: userData, error } = await supabaseClient
+						.from("users")
+						.select()
+						.eq("user_id", value.data.user.id);
+					if (error) {
+						console.log(error);
+					} else {
+						setUserID(value.data.user.id.toString());
+						console.log(userID);
+					}
+				}
+			});
+		}
+		getUserData();
+	}, [supabaseClient]);
+
 	return finish ? (
 		<div className="pop-up-screen">
 			<div className="pop-up-box">
@@ -221,7 +273,16 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 						border: "none",
 					}}
 					onClick={() => {
-						setFinish(true);
+						console.log(
+							JSON.stringify({
+								title: title,
+								content: content,
+								image: [],
+								capsule_name: capsule_name,
+								user_id: userID,
+								nickname: user.nickname,
+							})
+						);
 					}}
 				>
 					봉인하기
