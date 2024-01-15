@@ -6,6 +6,7 @@ import goback from "../img/goback.svg";
 import smalllock from "../img/smalllock.svg";
 import { useState } from "react";
 import { capsuledata1, capsuledata2, capsuledata3, leftdays } from "./Capsuledata.js";
+import Header from "../../../components/Layout/Header/Header";
 
 function Mycapsule() {
   const [blur, setBlur] = useState("blurring");
@@ -20,39 +21,41 @@ function Mycapsule() {
           closemodal({ setModal, setContainer, container });
         }}>
         <div>
-          <Upside name="MY CAPSULE" />
+          <Header />
         </div>
-        <div>
-          <div className="year">2024</div>
-        </div>
-        <div
-          className={blur}
-          onClick={() => {
-            openmodal({ setModal, setContainer, blur });
-          }}>
-          <div className="nonpointer">
-            <div>
-              <div className="goalposition">
-                <Typeofcapsule type="GOALS" />
+        <div className="abc">
+          <div>
+            <div className="year">2024</div>
+          </div>
+          <div
+            className={blur}
+            onClick={() => {
+              openmodal({ setModal, setContainer, blur });
+            }}>
+            <div className="nonpointer">
+              <div>
+                <div className="goalposition">
+                  <Typeofcapsule type="GOALS" />
+                </div>
+                <div className="goalcapsule">{goalsrepeat(2)}</div>
               </div>
-              <div className="goalcapsule">{goalsrepeat(2)}</div>
-            </div>
-            <div>
-              <div className="memoryposition">
-                <Typeofcapsule type="MEMORY" />
+              <div>
+                <div className="memoryposition">
+                  <Typeofcapsule type="MEMORY" />
+                </div>
+                <div className="memorycapsule">{memoryrepeat(4)}</div>
               </div>
-              <div className="memorycapsule">{memoryrepeat(4)}</div>
-            </div>
-            <div>
-              <div className="letterposition">
-                <Typeofcapsule type="LETTER" />
+              <div>
+                <div className="letterposition">
+                  <Typeofcapsule type="LETTER" />
+                </div>
+                <div className="lettercapsule">{letterrepeat(4)}</div>
               </div>
-              <div className="lettercapsule">{letterrepeat(4)}</div>
             </div>
           </div>
+          <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} blur={blur} />
+          <Modal modal={modal} />
         </div>
-        <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} blur={blur} />
-        <Modal modal={modal} />
       </div>
       <Blurbutton blur={blur} setBlur={setBlur} setModal={setModal} setContainer={setContainer} />
     </>
