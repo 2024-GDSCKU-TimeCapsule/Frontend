@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 const capsuledata1 = [
   {
     id: 1,
@@ -55,4 +57,15 @@ const capsuledata3 = [
   },
 ];
 
-export { capsuledata1, capsuledata2, capsuledata3 };
+const leftdays = () => {
+  const today = dayjs();
+  const endOfYear = dayjs().endOf("year");
+  const daysLeft = endOfYear.diff(today, "day");
+  if (daysLeft === 0) {
+    return "DAY";
+  } else {
+    return daysLeft;
+  }
+}; // 오늘부터 2024년 12월 31일까지의 남은 날짜 계산기. 디데이가 되면 <D-DAY>로 표시함
+
+export { capsuledata1, capsuledata2, capsuledata3, leftdays };
