@@ -5,7 +5,7 @@ import img13 from "../img/image13.svg";
 import lock from "../img/lock.svg";
 import whiteline from "../img/whiteline.svg";
 import goback from "../img/goback.svg";
-import dayjs from "dayjs";
+import { leftdays } from "../Mycapsule/Capsuledata.js";
 
 function Capsulearchiving() {
   return (
@@ -23,7 +23,7 @@ function Capsulearchiving() {
           <div>
             <img src={lock} alt="lock" className="lock"></img>
           </div>
-          <div className="words">아직 타임캡슐이 봉인되어 있어요!</div>
+          <div className="words1">아직 타임캡슐이 봉인되어 있어요!</div>
           <div>
             <img src={whiteline} alt="whiteline" className="whiteline"></img>
           </div>
@@ -45,16 +45,5 @@ function Upside(props) {
     </div>
   );
 } // 상단 <CAPSULE ARCHIVING> 부분
-
-const leftdays = () => {
-  const today = dayjs();
-  const endOfYear = dayjs().endOf("year");
-  const daysLeft = endOfYear.diff(today, "day");
-  if (daysLeft === 0) {
-    return "DAY";
-  } else {
-    return daysLeft;
-  }
-}; // 오늘부터 2024년 12월 31일까지의 남은 날짜 계산기. 디데이가 되면 <D-DAY>로 표시함
 
 export default Capsulearchiving;
