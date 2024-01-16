@@ -188,20 +188,9 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 			}
 		});
 	}
-
-	async function getCapsuleData() {
-		const { data, error } = await supabaseClient
-			.from("capsules")
-			.select("*")
-			.eq("user_id", user.userId);
-		if (error) {
-			console.log(error);
-		}
-	}
-
 	const insertCapsuleData = async () => {
-		const file = image[0] ? image[0] : null;
-		const filename = file ? `${uuidv4()}/${file.name}` : null;
+		const file = image[0] ? image[0] : "";
+		const filename = image[0] ? `${uuidv4()}/${file.name}` : "";
 		const { data, imageInsertError } = await supabaseClient.storage
 			.from("images")
 			.upload(filename, file, {
@@ -211,7 +200,7 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 
 		if (imageInsertError) console.log(imageInsertError);
 
-		const imagePath = data.path;
+		const imagePath = image[0] ? data.path : "";
 		const { capsuleInsertError } = await supabaseClient
 			.from("capsules")
 			.insert([
@@ -258,6 +247,7 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 					onClick={() => {
 						setFinish(false);
 						setShowPopup(false);
+						window.location.href = "/mycapsule/";
 					}}
 				>
 					확인
