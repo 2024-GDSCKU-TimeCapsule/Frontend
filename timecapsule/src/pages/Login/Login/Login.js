@@ -2,8 +2,8 @@ import image13 from "./img/image-13.png";
 import image12 from "./img/image-12.png";
 import image15 from "./img/image-15.png";
 import instagram from "./img/instagram.svg";
-import ellipse from "./img/ellipse4.svg";
-// import ellipse from './img/ellipse4.png"';
+// import ellipse from "./img/ellipse4.svg";
+import ellipse from "./img/Ellipse 5.png";
 import dayjs from "dayjs";
 import Footer from "../../../components/Layout/Footer/Footer";
 
@@ -140,7 +140,7 @@ const Login = () => {
         <img src={image13} id="image-13" alt="capsule-1" />
         <img src={image12} id="image-12" alt="capsule-2" />
         <img src={image15} id="image-15" alt="capsule-3" />
-        <img src={ellipse} id="ellipse" alt="ellipse" />
+        <img src={ellipse} className="title-ellipse" alt="ellipse" />
 
         <div id="content">
           <div id="login-title">
@@ -172,9 +172,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="login-footer">
-          <Footer />
-        </div>
+        <div className="login-footer"></div>
       </div>
     </div>
   );
