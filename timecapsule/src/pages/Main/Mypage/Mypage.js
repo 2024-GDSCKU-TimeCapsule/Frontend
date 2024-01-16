@@ -6,11 +6,9 @@ import React, { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 const Mypage = () => {
-    const nickname = 'nickname';
     const email = 'email@korea.ac.kr';
     const supabaseClient = useSupabaseClient();
     const navigate = useNavigate();
-    // const [user, setUser] = useState(null);
     const [userID, setUserID] = useState({});
     const [user, setUser] = useState({
         id: '',
@@ -39,10 +37,15 @@ const Mypage = () => {
                         .from('users')
                         .select()
                         .eq('user_id', value.data.user.id);
+
+                    // console.log('Supabase Data:', userData);
+                    console.log(value.data.user);
                     if (error) {
                         console.log(error);
                     } else {
-                        setUserID(value.data.user.id);
+                        // setUser(value.data.user);
+                        console.log(value.data.user);
+                        // setUserID(value.data.user.id);
                     }
                 }
             });

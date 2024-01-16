@@ -10,6 +10,7 @@ import Footer from "../../../components/Layout/Footer/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Modal, closemodal, openmodal, Buttonconfirm } from "./Modal";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Mycapsule() {
   const [blur, setBlur] = useState("notblurring");
@@ -18,68 +19,73 @@ function Mycapsule() {
 
   return (
     <>
-      <div
-        className={container}
-        onClick={() => {
-          closemodal({ setModal, setContainer, container });
-        }}>
-        <div>
-          <Header />
-        </div>
-        <div className="abc">
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, rotate: 0 }}
+          animate={{ opacity: 1, rotate: 360 }}
+          exit={{ opacity: 0, rotate: 0 }}
+          className={container}
+          onClick={() => {
+            closemodal({ setModal, setContainer, container });
+          }}>
           <div>
-            <div className="year">2024</div>
+            <Header />
           </div>
-          <div
-            className={blur}
-            onClick={() => {
-              openmodal({ setModal, setContainer, blur });
-            }}>
-            <div className="nonpointer">
-              <div>
-                <div className="goalposition">
-                  <Typeofcapsule type="GOALS" />
+          <div className="abc">
+            <div>
+              <div className="year">2024</div>
+            </div>
+            <div
+              className={blur}
+              onClick={() => {
+                openmodal({ setModal, setContainer, blur });
+              }}>
+              <div className="nonpointer">
+                <div>
+                  <div className="goalposition">
+                    <Typeofcapsule type="GOALS" />
+                  </div>
+                  <div
+                    className="goalcapsule"
+                    onClick={() => {
+                      blurrrr({ setBlur, setModal, setContainer, blur });
+                    }}>
+                    {goalsrepeat(1)}
+                  </div>
                 </div>
-                <div
-                  className="goalcapsule"
-                  onClick={() => {
-                    blurrrr({ setBlur, setModal, setContainer, blur });
-                  }}>
-                  {goalsrepeat(1)}
+                <div>
+                  <div className="memoryposition">
+                    <Typeofcapsule type="MEMORY" />
+                  </div>
+                  <div
+                    className="memorycapsule"
+                    onClick={() => {
+                      blurrrr({ setBlur, setModal, setContainer, blur });
+                    }}>
+                    {memoryrepeat(1)}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="memoryposition">
-                  <Typeofcapsule type="MEMORY" />
-                </div>
-                <div
-                  className="memorycapsule"
-                  onClick={() => {
-                    blurrrr({ setBlur, setModal, setContainer, blur });
-                  }}>
-                  {memoryrepeat(1)}
-                </div>
-              </div>
-              <div>
-                <div className="letterposition">
-                  <Typeofcapsule type="LETTER" />
-                </div>
-                <div
-                  className="lettercapsule"
-                  onClick={() => {
-                    blurrrr({ setBlur, setModal, setContainer, blur });
-                  }}>
-                  {letterrepeat(4)}
+                <div>
+                  <div className="letterposition">
+                    <Typeofcapsule type="LETTER" />
+                  </div>
+                  <div
+                    className="lettercapsule"
+                    onClick={() => {
+                      blurrrr({ setBlur, setModal, setContainer, blur });
+                    }}>
+                    {letterrepeat(4)}
+                  </div>
                 </div>
               </div>
             </div>
+            <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} blur={blur} />
+            <Modal modal={modal} />
+            <Buttonconfirm modal={modal} />
           </div>
-          <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} blur={blur} />
-          <Modal modal={modal} />
-          <Buttonconfirm modal={modal} />
-        </div>
-        <div className="qw">{modal ? <Footer textColor="rgb(255,255,255,0.6)" /> : <Footer textColor="rgb(0,0,0,0.6)" />}</div>
-      </div>
+          <div className="qw">{modal ? <Footer textColor="rgb(255,255,255,0.6)" /> : <Footer textColor="rgb(0,0,0,0.6)" />}</div>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }

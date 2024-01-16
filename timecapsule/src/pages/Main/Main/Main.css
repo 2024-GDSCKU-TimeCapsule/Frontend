@@ -24,25 +24,16 @@
     right: 5.09vw;
 }
 
-.dday-circle::before {
+#dot {
     position: absolute;
     content: '';
     width: 3.56vw;
     height: 3.56vw;
     border-radius: 50%;
     background: white;
-    transform: rotate(45deg);
-}
-
-.dday-circle::before {
-    /* content: '';
-    width: 45vw;
-    height: 1px;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%, -50%) rotate(45deg); */
+    /* transform: rotate(45deg); */
+    /* transform: rotate(attr(progress) deg) translate(45vw); */
+    /* transform: translate(0, -45vw); */
 }
 
 .dday-circle {
