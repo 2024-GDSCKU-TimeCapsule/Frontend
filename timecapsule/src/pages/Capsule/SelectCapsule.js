@@ -1,6 +1,5 @@
 import "./SelectCapsule.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
@@ -18,11 +17,6 @@ import letter_capsule from "./images/letter_capsule.png";
 
 function SelectCapsule() {
 	const [capsuleName, setCapsuleName] = useState("memory");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log(capsuleName);
-	};
 
 	const capsuleList = ["memory", "goals", "letter"];
 

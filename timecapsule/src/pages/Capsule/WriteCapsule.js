@@ -99,7 +99,7 @@ function WriteCapsule() {
 							<div className="image-container">
 								<img
 									src={URL.createObjectURL(file)}
-									alt="image"
+									alt="uploadimage"
 									className="upload-image"
 								/>
 								<button
