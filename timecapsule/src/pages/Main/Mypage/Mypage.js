@@ -85,7 +85,7 @@ const Mypage = () => {
                 <Link to="/withdraw">
                     <div className="withdraw">계정 탈퇴</div>
                 </Link>
-                <div className="Footer">
+                <div className="main-footer">
                     <Footer />
                 </div>
             </div>
