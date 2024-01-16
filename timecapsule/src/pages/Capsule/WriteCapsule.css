@@ -83,6 +83,7 @@
 	width: 100%; /* Adjust the width as needed */
 	height: auto; /* Maintain aspect ratio */
 	display: block;
+	margin-bottom: 10px;
 }
 
 .image-container {
@@ -125,6 +126,7 @@
 	border: none;
 	background: none;
 	width: auto;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	cursor: pointer;
 	font-family: Noto Sans KR;
