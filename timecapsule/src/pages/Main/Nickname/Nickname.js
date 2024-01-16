@@ -1,8 +1,10 @@
 import './Nickname.css';
 import Header from '../../../components/Layout/Header/Header';
 import Footer from '../../../components/Layout/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 const Nickname = () => {
-    const nickname = 'nickname';
     return (
         <>
             <div className="main-container">
@@ -10,13 +12,15 @@ const Nickname = () => {
                 <div className="main-modal">
                     <div className="title">닉네임설정</div>
                     <div>
-                        <input type="text" placeholder={nickname}></input>
+                        <input type="text" placeholder="임시"></input>
                     </div>
                     <div className="buttons">
                         <button
                             type="submit"
                             className="button2 white"
                             onClick={() => {
+                                // updateNickname();
+                                // console.log(user.nickname);
                                 window.location.href = '/mypage';
                             }}
                         >
