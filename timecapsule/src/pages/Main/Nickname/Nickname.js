@@ -104,7 +104,7 @@ const Nickname = () => {
                         </button>
                     </div>
                 </div>
-                <div class="withdraw">계정 탈퇴</div>
+                {/* <div class="withdraw">계정 탈퇴</div> */}
                 <div className="main-footer">
                     <Footer />
                 </div>

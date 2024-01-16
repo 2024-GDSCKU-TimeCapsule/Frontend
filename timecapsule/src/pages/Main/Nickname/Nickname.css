@@ -1,5 +1,5 @@
 .main-modal {
-    width: 89.82%; /*353-42*2*/
+    width: 350px; /*353-42*2*/
     height: 33.67vh;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
 
     margin-top: 8.7vh;
     margin-bottom: 23.46vh;
-    padding: 0 10.69%;
+    /* padding: 0 10.69%; */
     box-sizing: border-box;
     /* margin: 192px 0 42px; */
 }
@@ -32,7 +32,7 @@
 }
 
 .main-modal input {
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
     height: 7.19vh;
     flex-shrink: 0;
@@ -56,14 +56,14 @@
 }
 
 .buttons {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     margin: 6.94vh 0 0 0;
 }
 
 .button2 {
-    width: 45%;
+    width: 50%;
     height: 4.92vh;
     flex-shrink: 0;
     border-radius: 100px;
