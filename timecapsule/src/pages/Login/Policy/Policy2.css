@@ -1,0 +1,207 @@
+.image-13 {
+  width: 301px;
+  height: 302px;
+  transform: rotate(65deg);
+  flex-shrink: 0;
+  filter: blur(15px);
+  box-sizing: border-box;
+  top: 118px;
+  right: -161px;
+  position: absolute;
+  animation: image-13-spin 2s alternate-reverse infinite ease-in-out;
+  z-index: 1;
+}
+
+.image-12 {
+  width: 541px;
+  height: 542px;
+  opacity: 0.8;
+  transform: rotate(4deg);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  bottom: -144px;
+  filter: blur(15px);
+
+  left: -190px;
+  position: absolute;
+  animation: image-12-spin 2s alternate infinite ease-in-out;
+
+  z-index: 1;
+}
+.image-15 {
+  width: 217.261px;
+  height: 217.261px;
+  transform: rotate(200deg);
+  flex-shrink: 0;
+  opacity: 0.5;
+  filter: blur(15px);
+  box-sizing: border-box;
+  top: -1.8px;
+  left: -90px;
+  position: absolute;
+  animation: image-15-spin 2s alternate infinite ease-in-out;
+  z-index: 1;
+}
+
+.policy-title2 {
+  width: 100vw;
+
+  position: absolute;
+  top: 9.331vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  z-index: 3;
+}
+
+.backgroundDark {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+  z-index: 2;
+  opacity: 50%;
+}
+.read-more {
+  width: 100%;
+
+  position: absolute;
+  top: 9.331vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  z-index: 3;
+}
+
+.content2 {
+  width: 100%;
+  z-index: 3;
+}
+.policy-content1 {
+  width: 85vw;
+  position: absolute;
+  top: 15vh;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  color: #fff;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  z-index: 3;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* 글씨 넘어가면 자동 줄바꿈 */
+  word-break: keep-all;
+}
+
+.read-more {
+  position: absolute;
+  top: 40vh;
+  width: 100vw;
+
+  color: #fff;
+
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem; /* 142.857% */
+  text-decoration-line: underline;
+  z-index: 3;
+}
+
+.selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  border-radius: 8px;
+  color: white;
+  font-family: "Arial", sans-serif;
+  max-width: 400px; /* Adjust as needed */
+  z-index: 3;
+}
+
+.selection-container {
+  position: absolute;
+  bottom: 30.264vh;
+  z-index: 3;
+}
+.options {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.75rem;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem; /* 166.667% */
+  z-index: 3;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.option input[type="radio"] {
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  z-index: 3;
+}
+
+/* Custom radio button */
+.option input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  padding: 2px;
+  background-clip: content-box;
+  border: 2px solid #fff;
+  background-color: transparent;
+  border-radius: 0%;
+  z-index: 3;
+}
+
+.option input[type="radio"]:checked {
+  background-color: #fff;
+  z-index: 3;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 21.185vh;
+  width: 7.4375rem;
+  height: 2.4375rem;
+  flex-shrink: 0;
+  border-radius: 100px;
+  opacity: 0.9;
+  background: #fff;
+  border: none;
+  z-index: 3;
+}
