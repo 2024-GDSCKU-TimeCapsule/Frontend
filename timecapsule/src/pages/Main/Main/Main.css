@@ -113,6 +113,8 @@
 }
 
 .menu {
+    width: 89.82vw;
+    height: 7.88vh;
     position: absolute;
     margin-top: 5.93vh;
     display: flex;

@@ -34,9 +34,7 @@ const Nickname = () => {
                     </div>
                 </div>
                 <div class="withdraw">계정 탈퇴</div>
-                <div className="main-footer">
-                    <Footer />
-                </div>
+                <Footer />
             </div>
         </>
     );
