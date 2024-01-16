@@ -3,6 +3,7 @@ import menu from './img/Subtract.svg';
 import create from './img/Vector.svg';
 import mycapsule from './img/Union.svg';
 import archiving from './img/Group 22.svg';
+import setting from './img/레이어_1.svg';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import dayjs from 'dayjs';
 import Header from '../../../components/Layout/Header/Header';
@@ -15,6 +16,9 @@ const Main = () => {
     return (
         <div className="main-container">
             <Header />
+            <Link to="/mypage">
+                <img className="setting-icon" src={setting} alt="setting-icon"></img>
+            </Link>
             <div className="dday-circle">
                 <CircularProgressbarWithChildren value={progress}>
                     <div className="main-dday">D-{dday}</div>
