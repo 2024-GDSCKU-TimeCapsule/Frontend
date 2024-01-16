@@ -7,6 +7,7 @@ import ellipse from "./img/ellipse4.svg";
 import Footer from "../../../components/Layout/Footer/Footer";
 
 import googleLoginButton from "./img/web_light_sq_SU.svg";
+import kakaoLoginImg from "./img/kakaoLoginImg.svg";
 import googleLoginImg from "./img/googleLoginImg.svg";
 import kakaoLoginButton from "./img/kakao_login_medium_narrow.png";
 
@@ -68,19 +69,19 @@ const Login = () => {
       console.error("Unexpected error during Google OAuth sign-in:", error);
     }
   }
-  useEffect(() => {
-    async function checkLogin() {
-      const authInfo = await supabaseClient.auth.getSession();
-      const session = authInfo.data.session;
-      if (session == null) {
-        console.log("로그인 해주세요");
-      } else {
-        console.log("이미 로그인 되었습니다");
-        navigate("/main");
-      }
-    }
-    checkLogin();
-  }, [supabaseClient]);
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     const authInfo = await supabaseClient.auth.getSession();
+  //     const session = authInfo.data.session;
+  //     if (session == null) {
+  //       console.log("로그인 해주세요");
+  //     } else {
+  //       console.log("이미 로그인 되었습니다");
+  //       navigate("/main");
+  //     }
+  //   }
+  //   checkLogin();
+  // }, [supabaseClient]);
 
   return (
     <div className="componentBackground">
@@ -103,26 +104,24 @@ const Login = () => {
         <div id="unsealed-date">Unsealed December 31, 2024</div>
 
         <div className="sns">
-          <img
-            className="googleButton"
-            src={googleLoginImg}
-            alt="google-login-button"
-            onClick={signInWithGoogle}
-          />
-          <img
-            className="kakaoButton"
-            src={kakaoLoginButton}
-            alt="kakao-login-button"
-            onClick={signInWithKakao}
-          />
-          {/* <div className="socialLoginButton" onClick={signInWithKakao}>
-          카카오 로그인
-		  </div>
-		  <div className="socialLoginButton" onClick={signInWithGoogle}>
-          구글 로그인
-        </div> */}
-          <Footer />
+          <div class="sns-google">
+            <img
+              className="googleButton"
+              src={googleLoginImg}
+              alt="google-login-button"
+              onClick={signInWithGoogle}
+            />
+          </div>
+          <div class="sns-kakao">
+            <img
+              className="kakaoButton"
+              src={kakaoLoginImg}
+              alt="kakao-login-button"
+              onClick={signInWithKakao}
+            />
+          </div>
         </div>
+        <Footer className="login-footer" />
       </div>
     </div>
   );

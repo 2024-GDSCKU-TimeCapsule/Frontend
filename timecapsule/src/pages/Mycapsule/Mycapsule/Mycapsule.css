@@ -1,12 +1,12 @@
 .mycapsule-container {
-  height: 852px;
+  height: 788px;
   background-color: #f3f3f3;
   position: relative;
   overflow: hidden;
 } /* 일반 배경 */
 
 .mycapsule-container-modal {
-  height: 852px;
+  height: 788px;
   background-color: #00000080;
   position: relative;
   overflow: hidden;
@@ -432,3 +432,8 @@ button:active {
   background-color: #f3f3f3;
   position: absolute;
 } /* 중간단계 모달*/
+
+.abc {
+  position: absolute;
+  top: -64px;
+}
