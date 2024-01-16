@@ -62,6 +62,7 @@
 	line-height: 150%;
 	color: #000000;
 	border: 0px;
+	resize: none;
 }
 
 .capsule-content {
