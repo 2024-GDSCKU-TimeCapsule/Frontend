@@ -1,5 +1,4 @@
 import "./Mycapsule.css";
-import "./Modal.css";
 
 import { leftdays } from "./Capsuledata";
 import { motion, AnimatePresence } from "framer-motion";
