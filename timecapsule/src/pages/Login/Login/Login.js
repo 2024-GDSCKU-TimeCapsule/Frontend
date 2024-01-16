@@ -3,7 +3,7 @@ import image12 from "./img/image-12.png";
 import image15 from "./img/image-15.png";
 import instagram from "./img/instagram.svg";
 import ellipse from "./img/ellipse4.svg";
-
+import dayjs from "dayjs";
 import Footer from "../../../components/Layout/Footer/Footer";
 
 import googleLoginButton from "./img/web_light_sq_SU.svg";
@@ -23,13 +23,14 @@ const Login = () => {
   const supabaseClient = useSupabaseClient();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  //메인 화면의 D-day 날짜 변경 코드
-  const calculateDaysLeft = () => {
-    const targetDate = new Date("2024-12-31");
-    const currentDate = new Date();
-    const timeDiff = targetDate - currentDate;
-    return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  };
+  const dday = leftdays();
+  // //메인 화면의 D-day 날짜 변경 코드
+  // const calculateDaysLeft = () => {
+  //   const targetDate = new Date("2024-12-31");
+  //   const currentDate = new Date();
+  //   const timeDiff = targetDate - currentDate;
+  //   return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  // };
 
   //소셜 로그인(카카오, 구글)
   async function signInWithKakao() {
@@ -148,7 +149,7 @@ const Login = () => {
           </div>
           <div id="description">1년 뒤 나에게 보내는 선물</div>
           <hr id="white-line" />
-          <div id="d-day">D-{calculateDaysLeft()}</div>
+          <div id="d-day">D-{dday}</div>
         </div>
         <div id="unsealed-date">Unsealed December 31, 2024</div>
 
@@ -179,3 +180,14 @@ const Login = () => {
 };
 
 export default Login;
+
+const leftdays = () => {
+  const today = dayjs();
+  const endOfYear = dayjs().endOf("year");
+  const daysLeft = endOfYear.diff(today, "day");
+  if (daysLeft === 0) {
+    return "DAY";
+  } else {
+    return daysLeft;
+  }
+};

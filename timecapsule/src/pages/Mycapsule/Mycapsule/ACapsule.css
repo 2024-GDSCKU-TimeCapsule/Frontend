@@ -1,0 +1,36 @@
+/* 애니메이션 키프레임 정의 */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.myCapsuleImg {
+  width: 20.173vw;
+  height: 11.132vh;
+  padding: 2vh 2vw;
+  animation: shake 0.7s ease-in-out infinite;
+}
+.AcapsuleContainer {
+  width: 30.534vw;
+}
+
+.acapsule-title {
+  color: #000;
+  width: 30.534vw;
+  font-family: Noto Sans KR;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 150%; /* 18px */
+}

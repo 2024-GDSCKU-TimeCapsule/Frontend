@@ -1,13 +1,11 @@
 .App-container {
   width: 100vw; /* 화면의 너비에 맞춰 조정 */
   height: 100vh; /* 화면의 높이에 맞춰 조정 */
-  /* margin: 0 auto; */
 }
 
 /* 큰 화면, 가령 데스크탑 또는 랩톱의 뷰포트에 대한 스타일 */
 @media screen and (min-width: 393px) {
   .App-container {
-    width: 393px; /* 너비를 393px로 고정 */
     margin: 0 auto;
   }
 }
