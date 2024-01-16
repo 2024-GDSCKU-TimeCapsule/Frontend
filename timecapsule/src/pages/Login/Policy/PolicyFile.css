@@ -16,7 +16,7 @@
   background-color: #fff;
 
   z-index: 2;
-  position: fixed;
+  position: absolute;
   top: 60vh;
   flex-shrink: 0;
   left: 50%;
