@@ -28,9 +28,8 @@ const Withdraw = () => {
                         </button>
                     </div>
                 </div>
-                <div className="main-footer">
-                    <Footer />
-                </div>
+
+                <Footer />
             </div>
         </>
     );
