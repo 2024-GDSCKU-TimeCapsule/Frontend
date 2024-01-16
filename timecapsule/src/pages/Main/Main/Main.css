@@ -131,3 +131,8 @@
     top: 3.2vh;
     left: 69.72vw;
 }
+
+.main-footer {
+    position: absolute;
+    bottom: 0px;
+}
