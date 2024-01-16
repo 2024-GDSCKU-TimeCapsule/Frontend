@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import dayjs from "dayjs";
+import { v4 as uuidv4 } from "uuid";
 
 import { ReactComponent as Lock } from "./images/lock.svg";
 import { ReactComponent as AddImage } from "./images/image.svg";
@@ -46,8 +47,6 @@ function WriteCapsule() {
 	const handleImageChange = (e) => {
 		const file = e.target.files[0];
 		setImage((prevState) => [...prevState, file]);
-
-		console.log(image);
 	};
 
 	return (
@@ -58,6 +57,7 @@ function WriteCapsule() {
 					title={title}
 					content={content}
 					setShowPopup={setShowPopup}
+					image={image}
 				/>
 			)}
 			<div>
@@ -98,7 +98,6 @@ function WriteCapsule() {
 						{image.map((file, index) => (
 							<div className="image-container">
 								<img
-									key={index}
 									src={URL.createObjectURL(file)}
 									alt="image"
 									className="upload-image"
@@ -145,7 +144,7 @@ function WriteCapsule() {
 	);
 }
 
-function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
+function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 	const [finish, setFinish] = useState(false);
 	const [user, setUser] = useState({
 		id: "",
@@ -161,40 +160,74 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 	const supabaseClient = useSupabaseClient();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		async function checkLogin() {
-			const authInfo = await supabaseClient.auth.getSession();
-			const session = authInfo.data.session;
+	async function checkLogin() {
+		const authInfo = await supabaseClient.auth.getSession();
+		const session = authInfo.data.session;
 
-			if (session == null) {
-				navigate("/login");
-			} else {
-				console.log("log in success");
-			}
+		if (session == null) {
+			navigate("/login");
 		}
-		checkLogin();
+	}
 
-		console.log(user);
-
-		async function getUserData() {
-			await supabaseClient.auth.getUser().then(async (value) => {
-				if (value.data?.user) {
-					const { data: userData, error } = await supabaseClient
-						.from("users")
-						.select()
-						.eq("user_id", value.data.user.id);
-					if (error) {
-						console.log(error);
-					} else {
-						setUser({
-							id: userData[0].id,
-							nickname: userData[0].nickname,
-							userId: userData[0].user_id,
-						});
-					}
+	async function getUserData() {
+		await supabaseClient.auth.getUser().then(async (value) => {
+			if (value.data?.user) {
+				const { data: userData, error } = await supabaseClient
+					.from("users")
+					.select()
+					.eq("user_id", value.data.user.id);
+				if (error) {
+					console.log(error);
+				} else {
+					setUser({
+						id: userData[0].id,
+						nickname: userData[0].nickname,
+						userId: userData[0].user_id,
+					});
 				}
-			});
+			}
+		});
+	}
+
+	async function getCapsuleData() {
+		const { data, error } = await supabaseClient
+			.from("capsules")
+			.select("*")
+			.eq("user_id", user.userId);
+		if (error) {
+			console.log(error);
 		}
+	}
+
+	const insertCapsuleData = async () => {
+		const file = image[0] ? image[0] : null;
+		const filename = file ? `${uuidv4()}/${file.name}` : null;
+		const { data, imageInsertError } = await supabaseClient.storage
+			.from("images")
+			.upload(filename, file, {
+				cacheControl: "3600",
+				upsert: false,
+			});
+
+		if (imageInsertError) console.log(imageInsertError);
+
+		const imagePath = data.path;
+		const { capsuleInsertError } = await supabaseClient
+			.from("capsules")
+			.insert([
+				{
+					user_id: user.userId,
+					title: title,
+					content: content,
+					type: capsule_name,
+					imagePath: imagePath,
+				},
+			]);
+		if (capsuleInsertError) console.log(capsuleInsertError);
+	};
+
+	useEffect(() => {
+		checkLogin();
 		getUserData();
 	}, [supabaseClient]);
 
@@ -267,16 +300,8 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 						border: "none",
 					}}
 					onClick={() => {
-						console.log(
-							JSON.stringify({
-								title: title,
-								content: content,
-								image: [],
-								capsule_name: capsule_name,
-								user_id: user.userId,
-								nickname: user.nickname,
-							})
-						);
+						insertCapsuleData();
+						setFinish(true);
 					}}
 				>
 					봉인하기

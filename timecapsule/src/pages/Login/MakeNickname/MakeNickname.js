@@ -31,15 +31,17 @@ const MakeNickname = () => {
 
 	const supabaseClient = useSupabaseClient();
 	const navigate = useNavigate();
-	const [userID, setUserID] = useState(null);
-	const [user, setUser] = useState(null);
-	const [userNickname, setUserNickname] = useState(null);
+	const [user, setUser] = useState({
+		id: "",
+		nickname: "",
+		userId: "",
+	});
 	const [newUserNickname, setNewUserNickname] = useState("");
 
 	async function insertUserData() {
 		const { error } = await supabaseClient.from("users").insert([
 			{
-				user_id: userID, // 필수값
+				user_id: user.userId, // 필수값
 				nickname: newUserNickname, // 수정된 부분
 			},
 		]);
@@ -52,46 +54,44 @@ const MakeNickname = () => {
 		}
 	}
 
+	async function checkLogin() {
+		const authInfo = await supabaseClient.auth.getSession();
+		const session = authInfo.data.session;
+
+		if (session == null) {
+			navigate("/login");
+		} else {
+			console.log("session", session);
+		}
+	}
+
+	async function getUserData() {
+		await supabaseClient.auth.getUser().then(async (value) => {
+			if (value.data?.user) {
+				const { data: userData, error } = await supabaseClient
+					.from("users")
+					.select()
+					.eq("user_id", value.data.user.id);
+				if (error) {
+					console.log("error", error);
+				} else {
+					setUser({
+						id: value.data.user.id,
+						nickname: value.data.user.nickname,
+						userId: value.data.user.id,
+					});
+					console.log("userData", userData);
+					console.log("value.data.user", value.data);
+				}
+			}
+		});
+	}
+
 	//처음 렌더링 시 정보 받아옴
 	useEffect(() => {
-		async function checkLogin() {
-			const authInfo = await supabaseClient.auth.getSession();
-			const session = authInfo.data.session;
-
-			if (session == null) {
-				console.log("log in fail");
-				navigate("/login");
-			} else {
-				console.log("log in success");
-				getUserData();
-				console.log(userID);
-				console.log(userNickname);
-				console.log(user);
-			}
-		}
 		checkLogin();
-
-		async function getUserData() {
-			await supabaseClient.auth.getUser().then(async (value) => {
-				if (value.data?.user) {
-					const { data: userData, error } = await supabaseClient
-						.from("users")
-						.select()
-						.eq("user_id", value.data.user.id);
-					if (error) {
-						console.log(error);
-					} else {
-						setUser({
-							id: userData[0].id,
-							nickname: userData[0].nickname,
-							userId: userData[0].user_id,
-						});
-						console.log(userData[0].id);
-						console.log(userData[0].nickname);
-					}
-				}
-			});
-		}
+		getUserData();
+		console.log("user", user);
 	}, [supabaseClient]);
 
 	return (
