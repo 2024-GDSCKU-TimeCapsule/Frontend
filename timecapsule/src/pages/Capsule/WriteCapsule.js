@@ -147,7 +147,6 @@ function WriteCapsule() {
 
 function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 	const [finish, setFinish] = useState(false);
-	const [userID, setUserID] = useState({});
 	const [user, setUser] = useState({
 		id: "",
 		nickname: "",
@@ -169,9 +168,13 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 
 			if (session == null) {
 				navigate("/login");
+			} else {
+				console.log("log in success");
 			}
 		}
 		checkLogin();
+
+		console.log(user);
 
 		async function getUserData() {
 			await supabaseClient.auth.getUser().then(async (value) => {
@@ -183,22 +186,16 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 					if (error) {
 						console.log(error);
 					} else {
-						setUserID(value.data.user.id);
+						setUser({
+							id: userData[0].id,
+							nickname: userData[0].nickname,
+							userId: userData[0].user_id,
+						});
 					}
 				}
 			});
 		}
 		getUserData();
-
-		async function insertUserData() {
-			const { error } = await supabaseClient.from("users").insert([
-				{
-					user_id: user.userId, //필수값
-					nickname: "test",
-				},
-			]);
-			console.log(error);
-		}
 	}, [supabaseClient]);
 
 	return finish ? (
@@ -276,7 +273,7 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 								content: content,
 								image: [],
 								capsule_name: capsule_name,
-								user_id: userID,
+								user_id: user.userId,
 								nickname: user.nickname,
 							})
 						);
