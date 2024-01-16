@@ -11,8 +11,9 @@ import Footer from '../../../components/Layout/Footer/Footer';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
-    const dday = 235;
+    const dday = leftdays();
     const progress = ((365 - dday) / 365) * 100;
+
     return (
         <div className="main-container">
             <Header />
@@ -20,6 +21,12 @@ const Main = () => {
                 <img className="setting-icon" src={setting} alt="setting-icon"></img>
             </Link>
             <div className="dday-circle">
+                <div
+                    id="dot"
+                    style={{
+                        transform: `rotate(${3.6 * progress}deg) translate(0,-45vw)`,
+                    }}
+                ></div>
                 <CircularProgressbarWithChildren value={progress}>
                     <div className="main-dday">D-{dday}</div>
                     <div className="dday-text">Unsealed December 31, 2024</div>
