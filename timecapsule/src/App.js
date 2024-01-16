@@ -13,7 +13,11 @@ import Capsulearchiving from "./pages/Mycapsule/Capsulearchiving/Capsulearchivin
 import Mycapsule from "./pages/Mycapsule/Mycapsule/Mycapsule";
 import SupabaseProvider from "./SupabaseProvider";
 import Policy from "./pages/Login/Policy/Policy";
+import Policy2 from "./pages/Login/Policy/Policy2";
+
 import Login from "./pages/Login/Login/Login";
+import PolicyFile from "./pages/Login/Policy/PolicyFile";
+import MakeNickname from "./pages/Login/MakeNickname/MakeNickname";
 
 function App() {
   return (
@@ -24,6 +28,9 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/policy" element={<Policy />} />
+              <Route path="/policy2" element={<Policy2 />} />
+              <Route path="/policyfile" element={<PolicyFile />} />
+              <Route path="/makenickname" element={<MakeNickname />} />
               <Route path="/" element={<Main />} />
               <Route path="/capsule" element={<SelectCapsule />} />
               <Route path="/capsule/:capsule_name" element={<WriteCapsule />} />
