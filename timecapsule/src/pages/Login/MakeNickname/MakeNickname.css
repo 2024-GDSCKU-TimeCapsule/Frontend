@@ -112,7 +112,7 @@
     border: none; /* 기존의 border 스타일 제거 */
     height: 0.1vh; /* 선의 두께 */
     background-color: #fff; /* 선의 색상을 흰색으로 설정 */
-    width: 37vw; /* 원하는 선의 너비 설정, 예시로 80% 사용 */
+    width: 140px; /* 원하는 선의 너비 설정, 예시로 80% 사용 */
     /* margin: 0 auto; 선을 가운데로 정렬 */
     margin: 1vh 0;
 }
@@ -289,7 +289,7 @@
 }
 
 .checkin:hover:active {
-    width: 32.569vw;
+    width: 50%;
     height: 4.91vh;
     flex-shrink: 0;
     border-radius: 100px;

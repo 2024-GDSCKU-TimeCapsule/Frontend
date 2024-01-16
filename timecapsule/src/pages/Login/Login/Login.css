@@ -1,151 +1,151 @@
 #root {
-	/* width: 100vw;
+    /* width: 100vw;
   height: 100vh; */
-	text-align: center;
+    text-align: center;
 }
 
 #page {
-	/* position: relative; */
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-image: url("./img/ss-1.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	flex-shrink: 0;
-	overflow: hidden;
+    /* position: relative; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/ss-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 #content {
-	width: 300px;
+    width: 300px;
 }
 
 #image-13 {
-	width: 301px;
-	height: 302px;
-	transform: rotate(65deg);
-	flex-shrink: 0;
-	filter: blur(7.5px);
-	box-sizing: border-box;
-	top: 118px;
-	right: -161px;
-	position: absolute;
-	animation: image-13-spin 2s alternate-reverse infinite ease-in-out;
+    width: 301px;
+    height: 302px;
+    transform: rotate(65deg);
+    flex-shrink: 0;
+    filter: blur(7.5px);
+    box-sizing: border-box;
+    top: 118px;
+    right: -161px;
+    position: absolute;
+    animation: image-13-spin 2s alternate-reverse infinite ease-in-out;
 }
 
 #image-12 {
-	width: 541px;
-	height: 542px;
-	opacity: 0.8;
-	transform: rotate(4deg);
-	flex-shrink: 0;
-	box-sizing: border-box;
-	bottom: -144px;
-	left: -190px;
-	position: absolute;
-	animation: image-12-spin 2s alternate infinite ease-in-out;
+    width: 541px;
+    height: 542px;
+    opacity: 0.8;
+    transform: rotate(4deg);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    bottom: -144px;
+    left: -190px;
+    position: absolute;
+    animation: image-12-spin 2s alternate infinite ease-in-out;
 }
 #image-15 {
-	width: 217.261px;
-	height: 217.261px;
-	transform: rotate(200deg);
-	flex-shrink: 0;
-	opacity: 0.5;
-	filter: blur(15px);
-	box-sizing: border-box;
-	top: -1.8px;
-	left: -90px;
-	position: absolute;
-	animation: image-15-spin 2s alternate infinite ease-in-out;
+    width: 217.261px;
+    height: 217.261px;
+    transform: rotate(200deg);
+    flex-shrink: 0;
+    opacity: 0.5;
+    filter: blur(15px);
+    box-sizing: border-box;
+    top: -1.8px;
+    left: -90px;
+    position: absolute;
+    animation: image-15-spin 2s alternate infinite ease-in-out;
 }
 
 #ellipse {
-	height: 52.837vh;
-	position: absolute;
-	top: 6.935vh;
-	flex-shrink: 0;
+    height: 52.837vh;
+    position: absolute;
+    top: 6.935vh;
+    flex-shrink: 0;
 }
 #content {
-	/* position: absolute;
+    /* position: absolute;
   top: 17.402vh;
   height: 100%; */
-	flex-shrink: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#title {
-	position: absolute;
-	top: 17.5vh;
-	color: #fff;
-	text-align: center;
-	font-family: Gugi-Regular;
-	font-size: 2.3rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 125%;
-	letter-spacing: 0.1875rem;
-	margin-bottom: 7%;
+#login-title {
+    position: absolute;
+    top: 17.5vh;
+    color: #fff;
+    text-align: center;
+    font-family: Gugi-Regular;
+    font-size: 5.5vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    letter-spacing: 0.1875rem;
+    margin-bottom: 7%;
 }
 #description {
-	position: absolute;
-	top: 34.5vh;
-	color: #fff;
-	text-align: center;
-	font-family: pretendard;
-	font-size: 0.75rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
+    position: absolute;
+    top: 34.5vh;
+    color: #fff;
+    text-align: center;
+    font-family: pretendard;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 #white-line {
-	position: absolute;
-	top: 36.191vh;
-	border: none; /* 기존의 border 스타일 제거 */
-	height: 0.1vh; /* 선의 두께 */
-	background-color: #fff; /* 선의 색상을 흰색으로 설정 */
-	width: 37vw; /* 원하는 선의 너비 설정, 예시로 80% 사용 */
-	/* margin: 0 auto; 선을 가운데로 정렬 */
-	margin: 1vh 0;
+    position: absolute;
+    top: 36.191vh;
+    border: none; /* 기존의 border 스타일 제거 */
+    height: 0.1vh; /* 선의 두께 */
+    background-color: #fff; /* 선의 색상을 흰색으로 설정 */
+    width: 140px; /* 원하는 선의 너비 설정, 예시로 80% 사용 */
+    /* margin: 0 auto; 선을 가운데로 정렬 */
+    margin: 1vh 0;
 }
 
 #date {
-	color: #fff;
-	text-align: center;
-	font-family: Product Sans;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 150%; /* 36px */
+    color: #fff;
+    text-align: center;
+    font-family: Product Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
 }
 
-#d-day {
-	position: absolute;
-	top: 41.74vh;
-	opacity: 0.9;
-	color: #fff;
-	font-family: postnobillscolombo-regular;
-	font-size: 3.5rem;
-	font-style: normal;
-	line-height: 150%;
+#login-dday {
+    position: absolute;
+    top: 41.74vh;
+    opacity: 0.9;
+    color: #fff;
+    font-family: postnobillscolombo-regular;
+    font-size: 7vh;
+    font-style: normal;
+    line-height: 150%;
 }
 #unsealed-date {
-	position: absolute;
-	top: 62.168vh;
-	color: #fff;
-	text-align: center;
-	font-family: Pretendard;
-	font-size: 0.75rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 21px; /* 175% */
-	letter-spacing: 2px;
-	z-index: 1;
+    position: absolute;
+    top: 62.168vh;
+    color: #fff;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; /* 175% */
+    letter-spacing: 2px;
+    z-index: 1;
 }
 
 /* .sns {
@@ -161,83 +161,83 @@
 } */
 
 .googleButton {
-	position: absolute;
-	top: 67.8436vh;
-	height: 7vh;
+    position: absolute;
+    top: 67.8436vh;
+    height: 7vh;
 
-	left: 50%;
-	transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .kakaoButton {
-	position: absolute;
-	top: 74vh;
-	height: 7vh;
+    position: absolute;
+    top: 74vh;
+    height: 7vh;
 
-	left: 50%;
-	transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .sns-google {
-	margin: 0;
+    margin: 0;
 }
 .sns-kakao {
-	margin: 0;
+    margin: 0;
 }
 
 .login-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 14.08vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: rgb(185, 147, 147);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 14.08vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(185, 147, 147);
 }
 
 @keyframes image-12-spin {
-	0% {
-		transform: rotate(4deg);
-	}
-	30% {
-		transform: rotate(4deg);
-	}
-	70% {
-		transform: rotate(-16deg);
-	}
-	to {
-		transform: rotate(-16deg);
-	}
+    0% {
+        transform: rotate(4deg);
+    }
+    30% {
+        transform: rotate(4deg);
+    }
+    70% {
+        transform: rotate(-16deg);
+    }
+    to {
+        transform: rotate(-16deg);
+    }
 }
 
 @keyframes image-13-spin {
-	from {
-		transform: rotate(65deg);
-	}
-	30% {
-		transform: rotate(65deg);
-	}
-	70% {
-		transform: rotate(85deg);
-	}
-	to {
-		transform: rotate(85deg);
-	}
+    from {
+        transform: rotate(65deg);
+    }
+    30% {
+        transform: rotate(65deg);
+    }
+    70% {
+        transform: rotate(85deg);
+    }
+    to {
+        transform: rotate(85deg);
+    }
 }
 
 @keyframes image-15-spin {
-	from {
-		transform: rotate(200deg);
-	}
-	30% {
-		transform: rotate(200deg);
-	}
-	70% {
-		transform: rotate(220deg);
-	}
-	to {
-		transform: rotate(220deg);
-	}
+    from {
+        transform: rotate(200deg);
+    }
+    30% {
+        transform: rotate(200deg);
+    }
+    70% {
+        transform: rotate(220deg);
+    }
+    to {
+        transform: rotate(220deg);
+    }
 }

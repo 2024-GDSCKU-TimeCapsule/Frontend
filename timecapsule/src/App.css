@@ -7,8 +7,8 @@
 /* 큰 화면, 가령 데스크탑 또는 랩톱의 뷰포트에 대한 스타일 */
 @media screen and (min-width: 393px) {
     .App-container {
-        width: 393px;
-        /* margin: 0 auto; */
+        /* width: 393px; */
+        margin: 0 auto;
     }
 }
 
@@ -23,7 +23,7 @@
 
 /* 폰트 정의 */
 @font-face {
-    font-family: 'Gugi-Regular.ttf';
+    font-family: 'Gugi-Regular';
     src: url('./static/fonts/Gugi-Regular.ttf') format('truetype');
 }
 
@@ -97,4 +97,9 @@
     font-family: 'Inter';
     src: url('./static/fonts/Inter-Regular.ttf');
     font-weight: 400;
+}
+
+@font-face {
+    font-family: 'postnobillscolombo-regular';
+    src: url('./static/fonts/postnobillscolombo-regular.ttf');
 }
