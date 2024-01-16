@@ -168,10 +168,7 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 			const session = authInfo.data.session;
 
 			if (session == null) {
-				console.log("log in fail");
 				navigate("/login");
-			} else {
-				console.log("log in success");
 			}
 		}
 		checkLogin();
@@ -192,6 +189,16 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup }) {
 			});
 		}
 		getUserData();
+
+		async function insertUserData() {
+			const { error } = await supabaseClient.from("users").insert([
+				{
+					user_id: user.userId, //필수값
+					nickname: "test",
+				},
+			]);
+			console.log(error);
+		}
 	}, [supabaseClient]);
 
 	return finish ? (
