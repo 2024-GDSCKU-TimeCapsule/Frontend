@@ -31,10 +31,28 @@ const MakeNickname = () => {
 
   const supabaseClient = useSupabaseClient();
   const navigate = useNavigate();
-  const [userID, setUserID] = useState("");
-  const [user, setUser] = useState("");
-  const [userNickname, setUserNickname] = useState("");
+  const [userID, setUserID] = useState(null);
+  const [user, setUser] = useState(null);
+  const [userNickname, setUserNickname] = useState(null);
   const [newUserNickname, setNewUserNickname] = useState("");
+
+  async function insertUserData() {
+    const { error } = await supabaseClient.from("users").insert([
+      {
+        user_id: user.userId, // 필수값
+        nickname: newUserNickname, // 수정된 부분
+      },
+    ]);
+    if (error) {
+      console.error("Error:", error);
+    } else {
+      // 성공적으로 닉네임이 설정되면 메인 페이지로 이동 또는 다른 로직 수행
+      console.log(newUserNickname);
+      // navigate("/main");
+    }
+  }
+
+  //처음 렌더링 시 정보 받아옴
   useEffect(() => {
     async function checkLogin() {
       const authInfo = await supabaseClient.auth.getSession();
@@ -45,6 +63,7 @@ const MakeNickname = () => {
         navigate("/login");
       } else {
         console.log("log in success");
+        getUserData();
         console.log(userID);
         console.log(userNickname);
         console.log(user);
@@ -69,23 +88,8 @@ const MakeNickname = () => {
         }
       });
     }
-
-    async function insertUserData() {
-      const { error } = await supabaseClient.from("users").insert([
-        {
-          user_id: user.userId, //필수값
-          nickname: newUserNickname,
-        },
-      ]);
-      console.log(error);
-    }
-
-    getUserData();
   }, [supabaseClient]);
 
-  const goToMain = () => {
-    navigate("/main");
-  };
   return (
     <div className="componentBackground">
       <div className="backgroundDark"></div>
@@ -108,14 +112,14 @@ const MakeNickname = () => {
         <div id="unsealed-date">Unsealed December 31, 2024</div>
 
         <div className="sns">
-          <div class="sns-google">
+          <div className="sns-google">
             <img
               className="googleButton"
               src={googleLoginImg}
               alt="google-login-button"
             />
           </div>
-          <div class="sns-kakao">
+          <div className="sns-kakao">
             <img
               className="kakaoButton"
               src={kakaoLoginImg}
@@ -136,11 +140,13 @@ const MakeNickname = () => {
                 name="nickname"
                 id="nickname"
                 className="nicknameInput"
+                value={newUserNickname}
+                onChange={(e) => setNewUserNickname(e.target.value)}
               />
             </div>
             <div className="check">
               <div className="checkin">취소</div>
-              <div className="checkin" onClick={goToMain}>
+              <div className="checkin" onClick={insertUserData}>
                 확인
               </div>
             </div>
