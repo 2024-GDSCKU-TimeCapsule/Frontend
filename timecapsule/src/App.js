@@ -10,7 +10,6 @@ import Mypage from "./pages/Main/Mypage/Mypage";
 import Nickname from "./pages/Main/Nickname/Nickname";
 import Withdraw from "./pages/Main/Withdraw/Withdraw";
 import Capsulearchiving from "./pages/Mycapsule/Capsulearchiving/Capsulearchiving";
-import Mycapsule from "./pages/Mycapsule/Mycapsule/Mycapsule";
 
 import Policy from "./pages/Login/Policy/Policy";
 import Policy2 from "./pages/Login/Policy/Policy2";
@@ -48,8 +47,7 @@ function App() {
 							path="/capsulearchiving"
 							element={<Capsulearchiving />}
 						/>
-						<Route path="/mycapsule" element={<Mycapsule />} />
-						<Route path="/mycapsule2" element={<Mycapsule2 />} />
+						<Route path="/mycapsule" element={<Mycapsule2 />} />
 					</Routes>
 				</BrowserRouter>
 			</div>
