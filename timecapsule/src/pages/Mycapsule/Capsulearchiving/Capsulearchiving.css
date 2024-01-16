@@ -185,7 +185,12 @@
   position: relative;
   overflow: hidden;
 
-  height: 852px; /* 왜 이걸 안쓰면 Header와 Footer사이에 공간이 안 생김?? */
+  height: 788px; /* 왜 이걸 안쓰면 Header와 Footer사이에 공간이 안 생김?? */
+}
+
+.abc {
+  position: absolute;
+  top: -64px;
 }
 
 @keyframes lock {
@@ -292,7 +297,7 @@
 
 @keyframes words2 {
   0% {
-    top: 650px;
+    top: 720px;
     opacity: 0;
   }
 
@@ -309,7 +314,7 @@
 
 @keyframes dday {
   0% {
-    top: 700px;
+    top: 770px;
     opacity: 0;
   }
 

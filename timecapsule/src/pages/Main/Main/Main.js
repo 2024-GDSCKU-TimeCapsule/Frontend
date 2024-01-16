@@ -11,13 +11,13 @@ import Footer from '../../../components/Layout/Footer/Footer';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
-    const dday = leftdays();
+    const dday = 235;
     const progress = ((365 - dday) / 365) * 100;
     return (
         <div className="main-container">
             <Header />
             <Link to="/mypage">
-                <img className="setting-icon" src={setting} alt="setting-icon" />
+                <img className="setting-icon" src={setting} alt="setting-icon"></img>
             </Link>
             <div className="dday-circle">
                 <CircularProgressbarWithChildren value={progress}>
@@ -42,9 +42,7 @@ const Main = () => {
                     </Link>
                 </div>
             </div>
-            <div className="main-footer">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 };

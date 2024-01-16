@@ -43,15 +43,7 @@
   z-index: 1;
 }
 
-.backgroundDark {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  background-color: black;
-  z-index: 2;
-  opacity: 50%;
-}
-.policy-title {
+.policy-title2 {
   width: 100vw;
 
   position: absolute;
@@ -69,140 +61,70 @@
   z-index: 3;
 }
 
-.content {
+.backgroundDark {
   width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+  z-index: 2;
+  opacity: 50%;
+}
+.read-more {
+  width: 100%;
+
+  position: absolute;
+  top: 9.331vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
   z-index: 3;
 }
-.policy-content11 {
-  width: 100vw;
+
+.content2 {
+  width: 100%;
+  z-index: 3;
+}
+.policy-content1 {
+  width: 85vw;
   position: absolute;
   top: 15vh;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   opacity: 0.9;
   color: #fff;
   font-family: Pretendard;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.25rem;
   z-index: 3;
+
+  left: 50%;
+  transform: translateX(-50%);
+
   /* 글씨 넘어가면 자동 줄바꿈 */
   word-break: keep-all;
 }
 
-.table-title {
+.read-more {
   position: absolute;
-  top: 24.9684vh;
+  top: 40vh;
   width: 100vw;
 
-  font-size: 0.75rem;
-  opacity: 0.9;
   color: #fff;
+
+  text-align: center;
   font-family: Pretendard;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
-  z-index: 3;
-}
-
-.table-content {
-  width: 100vw;
-
-  font-size: 0.7rem;
-  color: #fff;
-  text-align: center;
-  font-family: Pretendard;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 166.667% */
-  z-index: 3;
-}
-
-.table-container {
-  position: static;
-  width: 50px;
-  margin: 0 auto;
-  z-index: 3;
-}
-
-table {
-  position: absolute;
-  top: 28.121vh;
-  width: 79.389vw;
-
-  left: 50%;
-  transform: translateX(-50%);
-
-  border-collapse: collapse;
-  text-align: left;
-  color: white;
-  /* width: 19.5rem; */
-  color: #fff;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 0.65rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem; /* 166.667% */
-  z-index: 3;
-}
-
-th,
-td {
-  border: 1px solid #ddd; /* 경계선 스타일 */
-  z-index: 3;
-}
-
-thead {
-  height: 3.4047vh;
-  z-index: 3;
-}
-
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3) {
-  height: 15.5107vh;
-  z-index: 3;
-}
-
-th {
-  font-weight: bold;
-  z-index: 3;
-}
-
-.policy-bottom-content1 {
-  width: 100vw;
-
-  position: absolute;
-  top: 50.441vh;
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-size: 0.7rem;
-  color: #fff;
-  text-align: center;
-  font-family: Pretendard;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 166.667% */
-  z-index: 3;
-
-  /* 글씨 넘어가면 자동 줄바꿈 */
-  word-break: keep-all;
-}
-.policy-bottom-content2 {
-  width: 100vw;
-
-  position: absolute;
-  top: 60.4035vh;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.7rem;
-  color: #fff;
-  text-align: center;
-  font-family: Pretendard;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px; /* 166.667% */
+  line-height: 1.25rem; /* 142.857% */
+  text-decoration-line: underline;
   z-index: 3;
 }
 
@@ -220,7 +142,7 @@ th {
 
 .selection-container {
   position: absolute;
-  bottom: 30vh;
+  bottom: 30.264vh;
   z-index: 3;
 }
 .options {
@@ -233,7 +155,7 @@ th {
   font-family: Pretendard;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 166.667% */
+  line-height: 1.25rem; /* 166.667% */
   z-index: 3;
 }
 
