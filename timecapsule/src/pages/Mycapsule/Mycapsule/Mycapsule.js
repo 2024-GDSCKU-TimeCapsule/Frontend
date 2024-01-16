@@ -5,7 +5,8 @@ import letterimg from "../img/lettercapsule.svg";
 import goback from "../img/goback.svg";
 import smalllock from "../img/smalllock.svg";
 import { useState } from "react";
-import { capsuledata1, capsuledata2, capsuledata3 } from "./Capsuledata.js";
+import { capsuledata1, capsuledata2, capsuledata3, leftdays } from "./Capsuledata.js";
+import Header from "../../../components/Layout/Header/Header";
 
 function Mycapsule() {
   const [blur, setBlur] = useState("blurring");
@@ -17,36 +18,44 @@ function Mycapsule() {
       <div
         className={container}
         onClick={() => {
-          closemodal({ setBlur, setModal, setContainer, container });
+          closemodal({ setModal, setContainer, container });
         }}>
         <div>
-          <Upside name="MY CAPSULE" />
+          <Header />
         </div>
-        <div>
-          <div className="year">2024</div>
+        <div className="abc">
+          <div>
+            <div className="year">2024</div>
+          </div>
+          <div
+            className={blur}
+            onClick={() => {
+              openmodal({ setModal, setContainer, blur });
+            }}>
+            <div className="nonpointer">
+              <div>
+                <div className="goalposition">
+                  <Typeofcapsule type="GOALS" />
+                </div>
+                <div className="goalcapsule">{goalsrepeat(2)}</div>
+              </div>
+              <div>
+                <div className="memoryposition">
+                  <Typeofcapsule type="MEMORY" />
+                </div>
+                <div className="memorycapsule">{memoryrepeat(4)}</div>
+              </div>
+              <div>
+                <div className="letterposition">
+                  <Typeofcapsule type="LETTER" />
+                </div>
+                <div className="lettercapsule">{letterrepeat(4)}</div>
+              </div>
+            </div>
+          </div>
+          <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} blur={blur} />
+          <Modal modal={modal} />
         </div>
-        <div className={blur}>
-          <div>
-            <div className="goalposition">
-              <Typeofcapsule type="GOALS" />
-            </div>
-            <div className="goalcapsule">{goalsrepeat(4)}</div>
-          </div>
-          <div>
-            <div className="memoryposition">
-              <Typeofcapsule type="MEMORY" />
-            </div>
-            <div className="memorycapsule">{memoryrepeat(2)}</div>
-          </div>
-          <div>
-            <div className="letterposition">
-              <Typeofcapsule type="LETTER" />
-            </div>
-            <div className="lettercapsule">{letterrepeat(4)}</div>
-          </div>
-        </div>
-        {blur === "blurring" && <Stillsealed modal={modal} setModal={setModal} setContainer={setContainer} />}
-        {modal === "modal2" && <Modal />}
       </div>
       <Blurbutton blur={blur} setBlur={setBlur} setModal={setModal} setContainer={setContainer} />
     </>
@@ -106,42 +115,45 @@ const letterrepeat = (num) => {
   return arr;
 }; // LETTER에 캡슐을 몇개를 화면에 표시할 것인지를 나타내는 함수
 
-function Stillsealed({ modal, setModal, setContainer }) {
-  return (
-    <div
-      onClick={() => {
-        setModal("modal2");
-        setContainer("mycapsule-container-modal");
-      }}>
-      <div>
-        <img src={smalllock} alt="smalllock" className="smalllock"></img>
-      </div>
-      <div className="locked">아직 타임캡슐이 봉인되어 있어요!</div>
-    </div>
-  );
-} // 자물쇠 그림 및 <아직 타임캡슐이 봉인 ..> 문구
-
-function Modal() {
-  return (
-    <>
+function Stillsealed({ modal, setModal, setContainer, blur }) {
+  if (blur === "blurring") {
+    return (
       <div
-        className="modal2"
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={() => {
+          openmodal({ setModal, setContainer, blur });
         }}>
         <div>
-          <div className="text1">봉인된 타임캡슐</div>
-          <div className="text2">봉인 해제까지 남은 시간</div>
-          <div className="text3">D-235</div>
+          <img src={smalllock} alt="smalllock" className="smalllock"></img>
         </div>
+        <div className="locked">아직 타임캡슐이 봉인되어 있어요!</div>
       </div>
-      <div>
-        <button type="button" className="confirmbutton">
-          확인
-        </button>
-      </div>
-    </>
-  );
+    );
+  }
+} // 자물쇠 그림 및 <아직 타임캡슐이 봉인 ...> 문구를 클릭해서 모달창 열기
+
+function Modal({ modal }) {
+  if (modal === "modal2") {
+    return (
+      <>
+        <div
+          className={modal}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}>
+          <div>
+            <div className="text1">봉인된 타임캡슐</div>
+            <div className="text2">봉인 해제까지 남은 시간</div>
+            <div className="text3">D-{leftdays()}</div>
+          </div>
+        </div>
+        <div>
+          <button type="button" className="confirmbutton">
+            확인
+          </button>
+        </div>
+      </>
+    );
+  }
 } // 모달창
 
 function Blurbutton({ blur, setBlur, setModal, setContainer }) {
@@ -161,14 +173,20 @@ function Blurbutton({ blur, setBlur, setModal, setContainer }) {
       블러처리 버튼
     </button>
   );
-} // 우측 하단 모자이크 버튼
+} // 임시로 만든 우측 하단 블러처리 버튼
 
-const closemodal = ({ setBlur, setModal, setContainer, container }) => {
+const closemodal = ({ setModal, setContainer, container }) => {
   if (container === "mycapsule-container-modal") {
     setModal("notmodal");
-    setBlur("notblurring");
     setContainer("mycapsule-container");
   }
-};
+}; // 모달창 외부(확인버튼 포함)를 클릭해서 모달창 닫기
+
+const openmodal = ({ setModal, setContainer, blur }) => {
+  if (blur === "blurring") {
+    setModal("modal2");
+    setContainer("mycapsule-container-modal");
+  }
+}; // 블러처리된 화면을 클릭해서 모달창 열기
 
 export default Mycapsule;

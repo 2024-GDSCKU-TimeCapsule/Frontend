@@ -6,6 +6,11 @@
   opacity: 0.25px;
   angle: -110.32 deg;
   position: absolute;
+  animation-name: img15;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* 알약배경1*/
 
 .img12 {
@@ -16,6 +21,11 @@
   opacity: 0.8px;
   angle: -3.86 deg;
   position: absolute;
+  animation-name: img12;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* 알약배경2*/
 
 .img13 {
@@ -25,6 +35,11 @@
   left: 140px;
   angle: -64.65 deg;
   position: absolute;
+  animation-name: img13;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* 알약배경3*/
 
 .gugi {
@@ -49,18 +64,19 @@
   top: 175px;
   left: 125px;
   position: absolute;
-  animation-name: aaa;
-  animation-duration: 0.5s;
-  animation-delay: 0.3s;
+  animation-name: lock;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
   animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* 자물쇠 사진*/
 
-.words {
+.words1 {
   width: 196px;
   height: 17px;
   top: 340px;
   left: 98px;
-  opacity: 0.6px;
+  opacity: 0.7;
   font-family: Inter SemiBold;
   font-size: 14px;
   font-weight: 600;
@@ -69,6 +85,11 @@
   text-align: center;
   white-space: nowrap;
   position: absolute;
+  animation-name: words1;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* "아직 타임캡슐이 봉인 ..." 문구*/
 
 .whiteline {
@@ -79,6 +100,11 @@
   opacity: 0.8px;
   angle: 90.36 deg;
   position: absolute;
+  animation-name: whiteline;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
 .words2 {
@@ -96,6 +122,11 @@
   color: #ffffff;
   white-space: nowrap;
   position: absolute;
+  animation-name: words2;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* "봉인해제까지 남은시간" 문구*/
 
 .dday {
@@ -113,6 +144,11 @@
   color: #ffffff;
   white-space: nowrap;
   position: absolute;
+  animation-name: dday;
+  animation-duration: 0.7s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 } /* D-235*/
 
 .goback {
@@ -149,17 +185,146 @@
   position: relative;
   overflow: hidden;
 
-  height: 852px; /* 왜 이걸 안쓰면 Header와 Footer사이에 공간이 안 생김?? */
+  height: 788px; /* 왜 이걸 안쓰면 Header와 Footer사이에 공간이 안 생김?? */
 }
 
-@keyframes aaa {
-  from {
-    top: -50px;
+.abc {
+  position: absolute;
+  top: -64px;
+}
+
+@keyframes lock {
+  0% {
+    top: 50px;
     opacity: 0;
   }
 
-  to {
+  50% {
+    top: 180px;
+    opacity: 0.8;
+  }
+
+  100% {
     top: 175px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes img15 {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+
+  50% {
+    left: 5px;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: -1px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes img12 {
+  0% {
+    left: -600px;
+    opacity: 0;
+  }
+
+  50% {
+    left: -115px;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: -120.5px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes img13 {
+  0% {
+    left: 500px;
+    opacity: 0;
+  }
+
+  50% {
+    left: 135px;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 140px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes words1 {
+  0% {
+    top: 200px;
+    opacity: 0;
+  }
+
+  50% {
+    top: 345px;
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 340px;
+    opacity: 0.7;
+  }
+} /* 애니메이션 */
+
+@keyframes whiteline {
+  0% {
+    top: 250px;
+    opacity: 0;
+  }
+
+  50% {
+    top: 377px;
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 372px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes words2 {
+  0% {
+    top: 650px;
+    opacity: 0;
+  }
+
+  50% {
+    top: 555px;
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 560px;
+    opacity: 1;
+  }
+} /* 애니메이션 */
+
+@keyframes dday {
+  0% {
+    top: 700px;
+    opacity: 0;
+  }
+
+  50% {
+    top: 586px;
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 591px;
     opacity: 1;
   }
 } /* 애니메이션 */
