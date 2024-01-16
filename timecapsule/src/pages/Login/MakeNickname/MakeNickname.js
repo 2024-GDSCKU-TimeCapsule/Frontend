@@ -33,26 +33,45 @@ const MakeNickname = () => {
   const navigate = useNavigate();
   const [userID, setUserID] = useState(null);
   const [user, setUser] = useState(null);
-  const [userNickname, setUserNickname] = useState(null);
+  const [userNickname, setUserNickname] = useState("");
   const [newUserNickname, setNewUserNickname] = useState("");
 
-  async function insertUserData() {
-    const { error } = await supabaseClient.from("users").insert([
-      {
-        user_id: user.userId, // 필수값
-        nickname: newUserNickname, // 수정된 부분
-      },
-    ]);
-    if (error) {
-      console.error("Error:", error);
-    } else {
-      // 성공적으로 닉네임이 설정되면 메인 페이지로 이동 또는 다른 로직 수행
-      console.log(newUserNickname);
-      // navigate("/main");
-    }
-  }
+  // async function insertUserData() {
+  //   const { error } = await supabaseClient.from("users").insert([
+  //     {
+  //       user_id: userID, // 필수값
+  //       nickname: newUserNickname, // 수정된 부분
+  //     },
+  //   ]);
 
-  //처음 렌더링 시 정보 받아옴
+  //   if (error) {
+  //     console.error("Error:", error);
+  //   } else {
+  //     console.log("닉네임 설정 완료:", newUserNickname);
+  //     fetchUpdatedUserData(); // 새로운 닉네임으로 업데이트된 사용자 데이터를 조회
+  //   }
+  // }
+
+  // // 업데이트된 사용자 데이터를 조회하는 함수
+  // const fetchUpdatedUserData = async () => {
+  //   try {
+  //     const { data, error } = await supabaseClient
+  //       .from("users")
+  //       .select("*")
+  //       .eq("user_id", userID)
+  //       .single();
+  //     if (error) throw error;
+
+  //     if (data) {
+  //       console.log("업데이트된 사용자 데이터:", data);
+  //       setUserNickname(data.nickname); // 업데이트된 닉네임을 상태에 저장
+  //     }
+  //   } catch (error) {
+  //     console.error("사용자 데이터 조회 실패:", error);
+  //   }
+  // };
+
+  //처음 렌더링 시
   useEffect(() => {
     async function checkLogin() {
       const authInfo = await supabaseClient.auth.getSession();
@@ -63,10 +82,6 @@ const MakeNickname = () => {
         navigate("/login");
       } else {
         console.log("log in success");
-        getUserData();
-        console.log(userID);
-        console.log(userNickname);
-        console.log(user);
       }
     }
     checkLogin();
@@ -81,15 +96,20 @@ const MakeNickname = () => {
           if (error) {
             console.log(error);
           } else {
-            setUser(value.data.user);
-            setUserID(value.data.user.id);
-            setUserNickname(value.data.user.nickname);
+            setUser({
+              id: userData[0].id,
+              nickname: userData[0].nickname,
+              userId: userData[0].user_id,
+            });
           }
         }
       });
     }
+    getUserData();
   }, [supabaseClient]);
-
+  console.log(userID);
+  console.log("nickname", userNickname);
+  console.log("user", user);
   return (
     <div className="componentBackground">
       <div className="backgroundDark"></div>
@@ -146,9 +166,8 @@ const MakeNickname = () => {
             </div>
             <div className="check">
               <div className="checkin">취소</div>
-              <div className="checkin" onClick={insertUserData}>
-                확인
-              </div>
+              {/* <div className="checkin" onClick={insertUserData}> */}
+              <div className="checkin">확인</div>
             </div>
           </div>
         </form>
