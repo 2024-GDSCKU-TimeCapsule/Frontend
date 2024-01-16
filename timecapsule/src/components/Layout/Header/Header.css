@@ -24,6 +24,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+  z-index: 1; /* 이것만 제가 건드렸습니다 안그러면 클릭이 안되더라고요 ;; */
   border: none;
 }
 .pageName {

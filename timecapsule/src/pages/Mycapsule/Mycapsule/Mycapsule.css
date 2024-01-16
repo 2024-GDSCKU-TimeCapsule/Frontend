@@ -230,7 +230,7 @@
   white-space: nowrap;
 }
 
-.modal {
+.modal2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -243,36 +243,7 @@
   border-radius: 22px;
   background-color: #f3f3f3;
   position: absolute;
-} /* 이것도 아래랑 코드가 같은데 왜 얘는 이상하게 작동됨?? */
-
-.modal2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 293px;
-  height: 159px;
-  top: 290px;
-  left: 50px;
-  border-radius: 22px;
-  background-color: #f3f3f3;
-  position: absolute;
-  animation-name: modal2;
-  animation-duration: 0.3s;
-  animation-delay: 0;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
 } /* 이게 진짜 모달창임 */
-
-.blurbutton {
-  bottom: 200px;
-  right: 0;
-  width: 200px;
-  height: 200px;
-  font-size: large;
-  position: fixed;
-}
 
 .confirmbutton {
   width: 140px;
@@ -284,11 +255,15 @@
   color: #ffffff;
   position: absolute;
   border: none;
-  animation-name: confirmbutton;
-  animation-duration: 0.3s;
-  animation-delay: 0;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+}
+
+.blurbutton {
+  bottom: 200px;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  font-size: large;
+  position: fixed;
 }
 
 button:focus,
@@ -347,23 +322,6 @@ button:active {
   position: absolute;
 }
 
-@keyframes modal2 {
-  0% {
-    top: 400px;
-    opacity: 0;
-  }
-
-  70% {
-    top: 300px;
-    opacity: 0.9;
-  }
-
-  100% {
-    top: 290px;
-    opacity: 1;
-  }
-} /* 애니메이션 */
-
 @keyframes confirmbutton {
   0% {
     top: 550px;
@@ -380,26 +338,6 @@ button:active {
     opacity: 1;
   }
 } /* 애니메이션 */
-
-.notmodal2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 293px;
-  height: 159px;
-  top: 290px;
-  left: 50px;
-  border-radius: 22px;
-  background-color: #f3f3f3;
-  position: absolute;
-  animation-name: notmodal2;
-  animation-duration: 0.3s;
-  animation-delay: 0;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
 
 @keyframes notmodal2 {
   0% {
@@ -418,22 +356,13 @@ button:active {
   }
 } /* 애니메이션 */
 
-.modal3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 293px;
-  height: 159px;
-  top: 290px;
-  left: 50px;
-  border-radius: 22px;
-  background-color: #f3f3f3;
-  position: absolute;
-} /* 중간단계 모달*/
-
 .abc {
   position: absolute;
   top: -64px;
+}
+
+.qw {
+  position: absolute;
+  left: 110px;
+  top: 680px;
 }

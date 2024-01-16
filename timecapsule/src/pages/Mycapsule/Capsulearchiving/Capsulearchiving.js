@@ -4,7 +4,6 @@ import img12 from "../img/image12.svg";
 import img13 from "../img/image13.svg";
 import lock from "../img/lock.svg";
 import whiteline from "../img/whiteline.svg";
-import goback from "../img/goback.svg";
 import { leftdays } from "../Mycapsule/Capsuledata.js";
 import Header from "../../../components/Layout/Header/Header";
 
@@ -40,14 +39,5 @@ function Capsulearchiving() {
     </>
   );
 }
-
-function Upside(props) {
-  return (
-    <div>
-      <img src={goback} alt="goback" className="goback"></img>
-      <div className="gugi">{props.name}</div>
-    </div>
-  );
-} // 상단 <CAPSULE ARCHIVING> 부분
 
 export default Capsulearchiving;
