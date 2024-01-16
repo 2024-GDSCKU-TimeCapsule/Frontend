@@ -15,11 +15,14 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "./Login.css";
 
 const Login = () => {
+  const supabaseClient = useSupabaseClient();
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   //메인 화면의 D-day 날짜 변경 코드
   const calculateDaysLeft = () => {
     const targetDate = new Date("2024-12-31");
@@ -28,17 +31,17 @@ const Login = () => {
     return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   };
 
-  const supabaseClient = useSupabaseClient();
-  const navigate = useNavigate();
+  //소셜 로그인(카카오, 구글)
   async function signInWithKakao() {
+    const user = supabaseClient.auth.user(); // 현재 로그인된 사용자 정보 가져오기
+
     try {
       const { data, error } = await supabaseClient.auth.signInWithOAuth({
         provider: "kakao",
-        options: {
-          redirectTo:
-            process.env
-              .REACT_APP_FRONTEND_REDIRECT_URL /* 로그인 후에 redirect 될 페이지 */,
-        },
+        // options: {
+        //   redirectTo:
+        //     process.env.REACT_APP_FRONTEND_REDIRECT_URL /* 로그인 후에 redirect 될 페이지 */,
+        // },
       });
 
       if (error) {
@@ -46,42 +49,88 @@ const Login = () => {
       } else {
         console.log("Kakao OAuth sign-in successful:", data);
       }
+
+      handlePostLogin(user);
     } catch (error) {
       console.error("Unexpected error during Kakao OAuth sign-in:", error);
     }
   }
   async function signInWithGoogle() {
     try {
-      console.log("잘 읽어오는지 테스트");
-      console.log(process.env.useSupabaseClient);
       const { data, error } = await supabaseClient.auth.signInWithOAuth({
         provider: "google",
-        options: {
-          redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
-        },
+        // options: {
+        //   redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
+        // },
       });
       if (error) {
         console.error("Google OAuth sign-in error:", error.message);
       } else {
         console.log("Google OAuth sign-in successful:", data);
       }
+      handlePostLogin(user);
     } catch (error) {
       console.error("Unexpected error during Google OAuth sign-in:", error);
     }
   }
-  // useEffect(() => {
-  //   async function checkLogin() {
-  //     const authInfo = await supabaseClient.auth.getSession();
-  //     const session = authInfo.data.session;
-  //     if (session == null) {
-  //       console.log("로그인 해주세요");
-  //     } else {
-  //       console.log("이미 로그인 되었습니다");
-  //       navigate("/main");
-  //     }
-  //   }
-  //   checkLogin();
-  // }, [supabaseClient]);
+
+  async function handlePostLogin(user) {
+    if (!user) {
+      return;
+    }
+
+    const { data, error } = await supabaseClient
+      .from("users")
+      .select()
+      .eq("user_id", user.id)
+      .single();
+
+    if (error || !data) {
+      //회원가입 정보 없으면 '/policy'로 이동
+      console.log("go to policy");
+      //   navigate(process.env.REACT_APP_FRONTEND_REDIRECT_URL);
+    } else {
+      //회원가입 정보 있으면 '/main'로 이동
+      console.log("go to main");
+      //   navigate(process.env.REACT_APP_FRONTEND_REDIRECT_URL2);
+    }
+  }
+
+  useEffect(() => {
+    async function checkLogin() {
+      const authInfo = await supabaseClient.auth.getSession();
+      const session = authInfo.data.session;
+
+      if (session == null) {
+        console.log("로그인 해주세요");
+      } else {
+        console.log("이미 로그인 되었습니다");
+        // navigate("/main");
+      }
+    }
+    checkLogin();
+
+    async function getUserData() {
+      await supabaseClient.auth.getUser().then(async (value) => {
+        if (value.data?.user) {
+          const { data: userData, error } = await supabaseClient
+            .from("users")
+            .select()
+            .eq("user_id", value.data.user.id);
+          if (error) {
+            console.log(error);
+          } else {
+            setUser({
+              id: value.data.user.id,
+              nickname: value.data.user.nickname,
+              userId: value.data.user.user_id,
+            });
+          }
+        }
+      });
+    }
+    getUserData();
+  }, [supabaseClient]);
 
   return (
     <div className="componentBackground">
