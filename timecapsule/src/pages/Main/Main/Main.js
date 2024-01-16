@@ -49,7 +49,9 @@ const Main = () => {
                     </Link>
                 </div>
             </div>
-            <Footer />
+            <div className="main-footer">
+                <Footer />
+            </div>
         </div>
     );
 };
