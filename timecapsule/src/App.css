@@ -1,106 +1,100 @@
-/* @media screen and (max-width: 600px) {
-  .container {
-    width: 100%;
-    padding: 0 10px;
-  }
-} */
-
 .App-container {
-  width: 100vw; /* 화면의 너비에 맞춰 조정 */
-  height: 100vh; /* 화면의 높이에 맞춰 조정 */
-  /* margin: 0 auto; */
+	width: 100vw; /* 화면의 너비에 맞춰 조정 */
+	height: 100vh; /* 화면의 높이에 맞춰 조정 */
+	/* margin: 0 auto; */
 }
 
 /* 큰 화면, 가령 데스크탑 또는 랩톱의 뷰포트에 대한 스타일 */
 @media screen and (min-width: 393px) {
-  .App-container {
-    width: 393px; /* 너비를 393px로 고정 */
-  }
+	.App-container {
+		width: 393px; /* 너비를 393px로 고정 */
+		margin: 0 auto;
+	}
 }
 
 /* 모바일 기기와 같이 작은 화면의 뷰포트에 대한 스타일 */
 @media screen and (max-width: 392px) {
-  .App-container {
-    width: 100%; /* 뷰포트 너비의 100% */
-    height: auto; /* 높이를 자동으로 조정 */
-    /* 필요한 경우 추가 스타일 */
-  }
+	.App-container {
+		width: 100%; /* 뷰포트 너비의 100% */
+		height: auto; /* 높이를 자동으로 조정 */
+		/* 필요한 경우 추가 스타일 */
+	}
 }
 
 /* 폰트 정의 */
 @font-face {
-  font-family: "Gugi-Regular.ttf";
-  src: url("./static/fonts/Gugi-Regular.ttf") format("truetype");
+	font-family: "Gugi-Regular.ttf";
+	src: url("./static/fonts/Gugi-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Black.otf");
-  font-weight: 900;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Black.otf");
+	font-weight: 900;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Bold.otf");
-  font-weight: 700;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Bold.otf");
+	font-weight: 700;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-ExtraBold.otf");
-  font-weight: 800;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-ExtraBold.otf");
+	font-weight: 800;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-ExtraLight.otf");
-  font-weight: 200;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-ExtraLight.otf");
+	font-weight: 200;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Light.otf");
-  font-weight: 300;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Light.otf");
+	font-weight: 300;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Medium.otf");
-  font-weight: 500;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Medium.otf");
+	font-weight: 500;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Regular.otf");
-  font-weight: 400;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Regular.otf");
+	font-weight: 400;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-SemiBold.otf");
-  font-weight: 600;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-SemiBold.otf");
+	font-weight: 600;
 }
 
 @font-face {
-  font-family: "Pretendard";
-  src: url("./static/fonts/Pretendard-Thin.otf");
-  font-weight: 100;
+	font-family: "Pretendard";
+	src: url("./static/fonts/Pretendard-Thin.otf");
+	font-weight: 100;
 }
 
 @font-face {
-  font-family: "Post No Bills Jaffna Medium";
-  src: url("./static/fonts/Post\ No\ Bills\ Jaffna\ Medium.ttf");
-  font-weight: 500;
+	font-family: "Post No Bills Jaffna Medium";
+	src: url("./static/fonts/Post\ No\ Bills\ Jaffna\ Medium.ttf");
+	font-weight: 500;
 }
 
 @font-face {
-  font-family: "Noto Sans KR";
-  src: url("./static/fonts/NotoSansKR-Regular.ttf");
-  font-weight: 400;
+	font-family: "Noto Sans KR";
+	src: url("./static/fonts/NotoSansKR-Regular.ttf");
+	font-weight: 400;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("./static/fonts/Inter-Regular.ttf");
-  font-weight: 400;
+	font-family: "Inter";
+	src: url("./static/fonts/Inter-Regular.ttf");
+	font-weight: 400;
 }
