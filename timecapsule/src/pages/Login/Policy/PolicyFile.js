@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const PolicyFile = () => {
   const [clickCount, setClickCount] = useState(0);
-  const maxClicks = 2;
+  const maxClicks = 3;
   const navigate = useNavigate();
 
   const handleScroll = () => {
@@ -28,7 +28,7 @@ const PolicyFile = () => {
   return (
     <div>
       <button className="scrollButton" onClick={handleScroll}>
-        확인
+        {clickCount >= maxClicks ? "확인" : "내리기"}
       </button>
       <img src={policyFileImg} alt="policyFileImg" className="policyFileImg" />
     </div>

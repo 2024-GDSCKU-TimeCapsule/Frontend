@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 const Mypage = () => {
-    // const nickname='nickname'
     const email = 'email@korea.ac.kr';
     const supabaseClient = useSupabaseClient();
     const navigate = useNavigate();
@@ -40,15 +39,13 @@ const Mypage = () => {
                         .eq('user_id', value.data.user.id);
 
                     // console.log('Supabase Data:', userData);
-                    // console.log(value.data.user);
+                    console.log(value.data.user);
                     if (error) {
                         console.log(error);
                     } else {
-                        setUser({
-                            id: userData[0].id,
-                            nickname: userData[0].nickname,
-                            userId: userData[0].user_id,
-                        });
+                        // setUser(value.data.user);
+                        console.log(value.data.user);
+                        // setUserID(value.data.user.id);
                     }
                 }
             });
@@ -75,7 +72,7 @@ const Mypage = () => {
             <div className="main-container">
                 <Header />
                 <div className="nickname">{user.nickname} 님</div>
-                <div className="email">{user.email}</div>
+                <div className="email">{email}</div>
                 <div className="mypage-buttons">
                     <Link to="/nickname">
                         <button className="button1 white">닉네임 수정하기</button>
@@ -85,12 +82,11 @@ const Mypage = () => {
                     </button>
                 </div>
 
-                {/* <Link to="/withdraw">
-          <div className="withdraw">계정 탈퇴</div>
-        </Link> */}
-                <div className="main-footer">
-                    <Footer />
-                </div>
+                <Link to="/withdraw">
+                    <div className="withdraw">계정 탈퇴</div>
+                </Link>
+
+                <Footer />
             </div>
         </>
     );

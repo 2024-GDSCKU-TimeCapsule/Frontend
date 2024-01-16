@@ -24,7 +24,7 @@ const Main = () => {
                 <div
                     id="dot"
                     style={{
-                        transform: `rotate(${3.6 * progress}deg) translate(0,-178px)`,
+                        transform: `rotate(${3.6 * progress}deg) translate(0,-45vw)`,
                     }}
                 ></div>
                 <CircularProgressbarWithChildren value={progress}>
@@ -49,9 +49,7 @@ const Main = () => {
                     </Link>
                 </div>
             </div>
-            <div className="main-footer">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 };

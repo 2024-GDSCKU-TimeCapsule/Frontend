@@ -1,7 +1,7 @@
 .main-container {
-    width: 100%;
-    min-height: 100vh;
-    background-image: url(./img/main-background.png);
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./img/자산\ 2ss\ 1.png);
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -13,6 +13,11 @@
     position: relative;
 }
 
+.main-footer {
+    position: absolute;
+    bottom: 0px;
+}
+
 .setting-icon {
     position: absolute;
     top: 3.4vh;
@@ -22,8 +27,8 @@
 #dot {
     position: absolute;
     content: '';
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 3.56vw;
+    height: 3.56vw;
     border-radius: 50%;
     background: white;
     /* transform: rotate(45deg); */
@@ -32,8 +37,8 @@
 }
 
 .dday-circle {
-    width: 353px;
-    height: 353px;
+    width: 89.82vw;
+    height: 89.82vw;
     flex-shrink: 0;
     border-radius: 50%;
     border: 0.4px solid #fff;
@@ -49,13 +54,8 @@
 }
 
 .CircularProgressbar {
-    width: 385px;
-    height: 385px;
-}
-
-.CircularProgressbar-trail {
-    width: 100%;
-    height: 100%;
+    width: 98vw;
+    height: 98vw;
 }
 
 .CircularProgressbar-path {
@@ -88,8 +88,6 @@
 }
 
 .nav {
-    width: 89.82%;
-    height: 5.93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,8 +97,8 @@
 
 .create {
     /* position: absolute; */
-    width: 75px;
-    height: 75px;
+    width: 19.23vw;
+    height: 19.23vw;
     border-radius: 50%;
     background-color: #fff;
     opacity: 0.95;
@@ -115,8 +113,8 @@
 }
 
 .menu {
-    max-width: 100%;
-    /* height: 7.88vh; */
+    width: 89.82vw;
+    height: 7.88vh;
     position: absolute;
     margin-top: 5.93vh;
     display: flex;
@@ -125,17 +123,11 @@
 
 .mycapsule {
     position: absolute;
-    top: 32%;
-    left: 18%;
+    top: 3.2vh;
+    left: 16vw;
 }
 .archiving {
     position: absolute;
-    top: 32%;
-    left: 74%;
-}
-
-.main-footer {
-    /* position: absolute;
-    bottom: 0px; */
-    margin-top: 15vh;
+    top: 3.2vh;
+    left: 69.72vw;
 }
