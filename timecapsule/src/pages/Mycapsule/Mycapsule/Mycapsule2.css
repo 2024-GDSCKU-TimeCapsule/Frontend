@@ -33,7 +33,7 @@
 .year-mycapsule2 {
   color: #000;
 
-  font-family: Product Sans;
+  font-family: Product-Sans;
   font-size: 1.25rem;
   font-style: normal;
 
@@ -67,7 +67,7 @@ div {
 
   color: #000;
 
-  font-family: Product Sans;
+  font-family: Product-Sans;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 700;
@@ -103,9 +103,6 @@ div {
 }
 .letterCapsulesDiv {
   top: 69.609vh;
-}
-
-.ACapsuleComponent {
 }
 
 .mycapsule2-footer {
