@@ -20,39 +20,30 @@ import MakeNickname from "./pages/Login/MakeNickname/MakeNickname";
 import Mycapsule2 from "./pages/Mycapsule/Mycapsule/Mycapsule2";
 
 function App() {
-	return (
-		<div className="App">
-			<div className="App-container">
-				<BrowserRouter>
-					<Routes>
-						<Route path="/login" element={<Login />} />
-						<Route path="/policy" element={<Policy />} />
-						<Route path="/policy2" element={<Policy2 />} />
-						<Route path="/policyfile" element={<PolicyFile />} />
-						<Route
-							path="/makenickname"
-							element={<MakeNickname />}
-						/>
-						<Route path="/" element={<Main />} />
-						<Route path="/capsule" element={<SelectCapsule />} />
-						<Route
-							path="/capsule/:capsule_name"
-							element={<WriteCapsule />}
-						/>
-						<Route path="/main" element={<Main />} />
-						<Route path="/mypage" element={<Mypage />} />
-						<Route path="/nickname" element={<Nickname />} />
-						<Route path="/withdraw" element={<Withdraw />} />
-						<Route
-							path="/capsulearchiving"
-							element={<Capsulearchiving />}
-						/>
-						<Route path="/mycapsule" element={<Mycapsule2 />} />
-					</Routes>
-				</BrowserRouter>
-			</div>
-		</div>
-	);
+  return (
+    <div className="App">
+      <div className="App-container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/policy" element={<Policy />} />
+            <Route path="/policy2" element={<Policy2 />} />
+            <Route path="/policyfile" element={<PolicyFile />} />
+            <Route path="/makenickname" element={<MakeNickname />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/capsule" element={<SelectCapsule />} />
+            <Route path="/capsule/:capsule_name" element={<WriteCapsule />} />
+            <Route path="/main" element={<Main />} />
+            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/nickname" element={<Nickname />} />
+            <Route path="/withdraw" element={<Withdraw />} />
+            <Route path="/capsulearchiving" element={<Capsulearchiving />} />
+            <Route path="/mycapsule" element={<Mycapsule2 />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </div>
+  );
 }
 
 export default App;
