@@ -18,6 +18,7 @@ import Login from "./pages/Login/Login/Login";
 import PolicyFile from "./pages/Login/Policy/PolicyFile";
 import MakeNickname from "./pages/Login/MakeNickname/MakeNickname";
 import Mycapsule2 from "./pages/Mycapsule/Mycapsule/Mycapsule2";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
             <Route path="/policy2" element={<Policy2 />} />
             <Route path="/policyfile" element={<PolicyFile />} />
             <Route path="/makenickname" element={<MakeNickname />} />
-            <Route path="/" element={<Login />} />
+            {/* <Route path="/" element={<Login />} /> */}
+            <Route path="/" element={<ComingSoon />} />
             <Route path="/capsule" element={<SelectCapsule />} />
             <Route path="/capsule/:capsule_name" element={<WriteCapsule />} />
             <Route path="/main" element={<Main />} />

@@ -1,0 +1,259 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#page-comingsoon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/ss-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+#content-comingsoon {
+  width: 300px;
+}
+
+#image-13-comingsoon {
+  width: 301px;
+  height: 302px;
+  transform: rotate(65deg);
+  flex-shrink: 0;
+  filter: blur(7.5px);
+  box-sizing: border-box;
+  top: 118px;
+  right: -161px;
+  position: absolute;
+  animation: image-13-spin 2s alternate-reverse infinite ease-in-out;
+}
+
+#image-12-comingsoon {
+  width: 541px;
+  height: 542px;
+  opacity: 0.8;
+  transform: rotate(4deg);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  bottom: -144px;
+  left: -190px;
+  position: absolute;
+  animation: image-12-spin 2s alternate infinite ease-in-out;
+}
+#image-15-comingsoon {
+  width: 217.261px;
+  height: 217.261px;
+  transform: rotate(200deg);
+  flex-shrink: 0;
+  opacity: 0.5;
+  filter: blur(15px);
+  box-sizing: border-box;
+  top: -1.8px;
+  left: -90px;
+  position: absolute;
+  animation: image-15-spin 2s alternate infinite ease-in-out;
+}
+
+#ellipse-comingsoon {
+  position: absolute;
+  top: 107px;
+  height: 60%;
+  flex-shrink: 0;
+}
+#content-comingsoon {
+  position: absolute;
+  top: 107px;
+  height: 60%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#description-comingsoon {
+  color: #fff;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 5%;
+}
+#title-comingsoon {
+  color: #fff;
+  text-align: center;
+  font-family: Gugi-Regular;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 3px;
+  margin-bottom: 7%;
+}
+#date-comingsoon {
+  color: #fff;
+  text-align: center;
+  font-family: Product Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 36px */
+}
+#coming-soon-comingsoon {
+  opacity: 0.9;
+  color: #fff;
+  font-family: Product Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  margin-bottom: 10%;
+}
+#footer-comingsoon {
+  height: 42px;
+  bottom: 70px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#link-comingsoon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#MadeBy-comingsoon {
+  color: #fff;
+  text-align: right;
+  font-family: Pretendard;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+#insta-link-comingsoon {
+  color: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 210%;
+}
+
+@keyframes image-12-spin {
+  0% {
+    transform: rotate(4deg);
+  }
+  30% {
+    transform: rotate(4deg);
+  }
+  70% {
+    transform: rotate(-16deg);
+  }
+  to {
+    transform: rotate(-16deg);
+  }
+}
+
+@keyframes image-13-spin {
+  from {
+    transform: rotate(65deg);
+  }
+  30% {
+    transform: rotate(65deg);
+  }
+  70% {
+    transform: rotate(85deg);
+  }
+  to {
+    transform: rotate(85deg);
+  }
+}
+
+@keyframes image-15-spin {
+  from {
+    transform: rotate(200deg);
+  }
+  30% {
+    transform: rotate(200deg);
+  }
+  70% {
+    transform: rotate(220deg);
+  }
+  to {
+    transform: rotate(220deg);
+  }
+}
+
+@font-face {
+  font-family: "Gugi-Regular";
+  src: url("./static/fonts/Gugi-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Black.otf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Bold.otf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-ExtraBold.otf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-ExtraLight.otf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Light.otf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Medium.otf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Regular.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-SemiBold.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./static/fonts/Pretendard-Thin.otf");
+  font-weight: 100;
+}
