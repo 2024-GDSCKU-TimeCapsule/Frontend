@@ -94,7 +94,6 @@ const Login = () => {
       const authInfo = await supabaseClient.auth.getSession();
       const session = authInfo.data.session;
 
-<<<<<<< HEAD
       if (session == null) {
         console.log("로그인 해주세요");
       } else {
@@ -103,16 +102,6 @@ const Login = () => {
       }
     }
     checkLogin();
-=======
-			if (session == null) {
-				console.log("로그인 해주세요");
-			} else {
-				console.log("이미 로그인 되었습니다");
-				navigate("/main");
-			}
-		}
-		checkLogin();
->>>>>>> 6472110f082bdcb46b5581af26dea3c0f7d3bea7
 
     async function getUserData() {
       await supabaseClient.auth.getUser().then(async (value) => {
