@@ -111,7 +111,7 @@ const Login = () => {
 				console.log("로그인 해주세요");
 			} else {
 				console.log("이미 로그인 되었습니다");
-				// navigate("/main");
+				navigate("/main");
 			}
 		}
 		checkLogin();
