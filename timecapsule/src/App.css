@@ -98,6 +98,17 @@
 }
 
 @font-face {
+    font-family: 'Inter-Bold';
+    src: url('./static/fonts/Inter-Bold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Inter-ExtraBold';
+    src: url('./static/fonts/Inter-ExtraBold.ttf') format(truetype);
+}
+
+@font-face {
     font-family: 'postnobillscolombo-regular';
     src: url('./static/fonts/postnobillscolombo-regular.ttf');
 }

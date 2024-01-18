@@ -41,11 +41,15 @@
     color: rgba(0, 0, 0, 0.5);
 
     text-align: center;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: normal;
+    font-size: 14px;
+    font-family: Inter-ExtraBold;
+}
+
+.make-capsule-button img {
+    width: 14px;
+    height: 14px;
 }
 
 .swiper {
