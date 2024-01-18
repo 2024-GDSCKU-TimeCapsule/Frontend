@@ -50,7 +50,7 @@ const MakeNickname = () => {
 		} else {
 			// 성공적으로 닉네임이 설정되면 메인 페이지로 이동 또는 다른 로직 수행
 			console.log(newUserNickname);
-			// navigate("/main");
+			navigate("/main");
 		}
 	}
 
