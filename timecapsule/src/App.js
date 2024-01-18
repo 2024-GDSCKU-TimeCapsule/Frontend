@@ -24,7 +24,7 @@ import Mycapsule2 from "./pages/Mycapsule/Mycapsule/Mycapsule2";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 
 function App() {
-	const commingSoon = false;
+	const commingSoon = true;
 	const [isLogin, setIsLogin] = useState(false);
 	const { checkLogin } = useAuth();
 
