@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import Footer from "../../../components/Layout/Footer/Footer";
 
 import googleLoginButton from "./img/web_light_sq_SU.svg";
-import kakaoLoginImg from "./img/kakaoLoginImg.svg";
+import kakaoLoginImg from "./img/kakaoLoginImg.png";
 import googleLoginImg from "./img/googleLoginImg.svg";
 import kakaoLoginButton from "./img/kakao_login_medium_narrow.png";
 

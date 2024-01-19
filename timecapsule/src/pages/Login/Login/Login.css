@@ -105,7 +105,8 @@
 
 #white-line {
   position: absolute;
-  top: 36.191vh;
+  /* top: 36.191vh; */ /*원래 값, UI 이상 없으면 지워도 됨*/
+  top: 37vh;
   border: none; /* 기존의 border 스타일 제거 */
   height: 0.1vh; /* 선의 두께 */
   background-color: #fff; /* 선의 색상을 흰색으로 설정 */
