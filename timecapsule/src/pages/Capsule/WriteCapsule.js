@@ -276,46 +276,51 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 		</div>
 	) : (
 		<div className="pop-up-screen">
-			<div className="pop-up-box">
-				<div
-					className="pop-up-title"
-					style={{ color: color[capsule_name] }}
-				>
-					타임캡슐 봉인
+			<div className="pop-up-aniamtion">
+				<div className="pop-up-box">
+					<div
+						className="pop-up-title"
+						style={{ color: color[capsule_name] }}
+					>
+						타임캡슐 봉인
+					</div>
+					<div
+						className="pop-up-content"
+						style={{ fontWeight: "bold" }}
+					>
+						2024년 12월 30일까지
+					</div>
+					<div className="pop-up-content">
+						열람 및 수정이 불가능합니다.
+					</div>
+					<div className="pop-up-content">확정하시겠습니까?</div>
 				</div>
-				<div className="pop-up-content" style={{ fontWeight: "bold" }}>
-					2024년 12월 30일까지
+				<div className="pop-up-button-container">
+					<button
+						className="pop-up-button"
+						style={{
+							background: "none",
+							border: "1px solid #fff",
+						}}
+						onClick={() => setShowPopup(false)}
+					>
+						뒤로가기
+					</button>
+					<div style={{ width: "13px" }} />
+					<button
+						className="pop-up-button"
+						style={{
+							background: color[capsule_name],
+							border: "none",
+						}}
+						onClick={() => {
+							insertCapsuleData();
+							setFinish(true);
+						}}
+					>
+						봉인하기
+					</button>
 				</div>
-				<div className="pop-up-content">
-					열람 및 수정이 불가능합니다.
-				</div>
-				<div className="pop-up-content">확정하시겠습니까?</div>
-			</div>
-			<div className="pop-up-button-container">
-				<button
-					className="pop-up-button"
-					style={{
-						background: "none",
-						border: "1px solid #fff",
-					}}
-					onClick={() => setShowPopup(false)}
-				>
-					뒤로가기
-				</button>
-				<div style={{ width: "13px" }} />
-				<button
-					className="pop-up-button"
-					style={{
-						background: color[capsule_name],
-						border: "none",
-					}}
-					onClick={() => {
-						insertCapsuleData();
-						setFinish(true);
-					}}
-				>
-					봉인하기
-				</button>
 			</div>
 		</div>
 	);
