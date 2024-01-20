@@ -11,10 +11,8 @@ function useAuth() {
 		const session = authInfo.data.session;
 
 		if (session == null) {
-			console.log("log in fail");
 			loginFailFunc();
 		} else {
-			console.log("log in success");
 			loginSuccessFunc();
 		}
 	}
