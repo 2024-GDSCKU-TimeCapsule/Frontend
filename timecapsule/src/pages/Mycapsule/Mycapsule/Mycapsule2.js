@@ -45,7 +45,7 @@ const Mycapsule2 = () => {
 
 			if (imageError) console.log(imageError);
 			else {
-				console.log("data", data);
+				console.log("data success", data);
 				setCapsules(data);
 			}
 		}
@@ -84,8 +84,6 @@ const Mycapsule2 = () => {
 		}
 	}, [user.userId]); // user.userId가 변경될 때마다 실행
 
-	console.log(user);
-	console.log("data가져와졌을까", capsules);
 	return (
 		<div className="mycapsule2-container">
 			<Header pageName="MY CAPSULE" backURL="/main" />
