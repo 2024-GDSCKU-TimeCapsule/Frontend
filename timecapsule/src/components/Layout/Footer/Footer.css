@@ -42,3 +42,7 @@
   font-weight: 300;
   line-height: 210%;
 }
+
+a {
+  text-decoration: none;
+}
