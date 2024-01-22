@@ -64,7 +64,7 @@ const Mycapsule2 = () => {
           .select()
           .eq("user_id", value.data.user.id);
         if (error) {
-          console.log(error);
+          //   console.log(error);
         } else {
           setUser({
             id: userData[0].id,
