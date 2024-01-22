@@ -51,7 +51,7 @@ const Mycapsule2 = () => {
       else {
         console.log("data success", data);
         setCapsules(data);
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     }
   }
