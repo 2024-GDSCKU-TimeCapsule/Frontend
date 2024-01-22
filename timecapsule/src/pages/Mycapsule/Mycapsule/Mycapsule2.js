@@ -49,7 +49,7 @@ const Mycapsule2 = () => {
 
       if (imageError) console.log(imageError);
       else {
-        console.log("data success", data);
+        // console.log("data success", data);
         setCapsules(data);
         setIsLoading(false);
       }
