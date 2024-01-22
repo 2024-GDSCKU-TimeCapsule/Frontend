@@ -51,6 +51,7 @@ const Mycapsule2 = () => {
       else {
         console.log("data success", data);
         setCapsules(data);
+        setIsLoading(false);
       }
     }
   }
@@ -86,7 +87,6 @@ const Mycapsule2 = () => {
     if (user.userId) {
       getCapsuleData();
     }
-    setIsLoading(false);
   }, [user.userId]); // user.userId가 변경될 때마다 실행
 
   return (
