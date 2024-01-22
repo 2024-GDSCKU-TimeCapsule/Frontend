@@ -5,13 +5,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
+import { Circles } from "react-loader-spinner";
 
 import { ReactComponent as Lock } from "./images/lock.svg";
 import { ReactComponent as AddImage } from "./images/image.svg";
 
 import Header from "../../components/Layout/Header/Header";
 import Footer from "../../components/Layout/Footer/Footer";
-import useAuth from "../../components/Data/useAuth";
+import LoadingCircle from "../../components/LoadingCircle/LoadingCircle";
 
 function WriteCapsule() {
   const color = {
@@ -24,17 +25,6 @@ function WriteCapsule() {
   const [content, setContent] = useState("");
   const [image, setImage] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-  const supabaseClient = useSupabaseClient();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState({
-    id: "",
-    nickname: "",
-    userId: "",
-  });
-
-  //로그인, 유저데이터 함수 가져오기
-  const { checkLogin, getUserData } = useAuth();
 
   const fileInputRef = useRef(null);
   const handleTitleChange = (e) => {
@@ -60,167 +50,6 @@ function WriteCapsule() {
     const file = e.target.files[0];
     setImage((prevState) => [...prevState, file]);
   };
-  useEffect(() => {
-    checkLogin({
-      loginFailFunc: () => {
-        navigate("/login");
-      },
-    });
-    getUserData({
-      getDataFailFunc: () => {
-        navigate("/login");
-      },
-      getDataSuccessFunc: (userData) => {
-        if (userData[0]) {
-          setUser({
-            id: userData[0].id,
-            nickname: userData[0].nickname,
-            userId: userData[0].user_id,
-          });
-          setIsLoading(false);
-        } else {
-          navigate("/policy");
-        }
-      },
-    });
-  }, []);
-
-  //컴포넌트 안으로 넣기
-
-  function PopUpComponent({
-    capsule_name,
-    title,
-    content,
-    setShowPopup,
-    image,
-  }) {
-    const [finish, setFinish] = useState(false);
-
-    const color = {
-      goals: "#F285A8",
-      memory: "#7C6EE0",
-      letter: "#42BCBC",
-    };
-    const time = dayjs("2024-12-31").diff(dayjs(), "day");
-
-    const insertCapsuleData = async () => {
-      if (image.length == 0) {
-        const { capsuleInsertError } = await supabaseClient
-          .from("capsules")
-          .insert([
-            {
-              user_id: user.userId,
-              title: title,
-              content: content,
-              type: capsule_name,
-            },
-          ]);
-        if (capsuleInsertError) console.log(capsuleInsertError);
-      } else {
-        const imagePath = [];
-        for (let i = 0; i < image.length; i++) {
-          const file = image[i];
-          const filename = `${uuidv4()}/${file.name}`;
-          const { data, imageInsertError } = await supabaseClient.storage
-            .from("images")
-            .upload(filename, file, {
-              cacheControl: "3600",
-              upsert: false,
-            });
-          if (data) {
-            imagePath.push(data.path);
-          }
-          if (imageInsertError) console.log(imageInsertError);
-        }
-        const { capsuleInsertError } = await supabaseClient
-          .from("capsules")
-          .insert([
-            {
-              user_id: user.userId,
-              title: title,
-              content: content,
-              type: capsule_name,
-              imagePath: imagePath,
-            },
-          ]);
-        if (capsuleInsertError) console.log(capsuleInsertError);
-      }
-    };
-
-    return finish ? (
-      <div className="pop-up-screen">
-        <div className="pop-up-box">
-          <div className="pop-up-title" style={{ color: color[capsule_name] }}>
-            타임캡슐 봉인 완료!
-          </div>
-          <div className="pop-up-content">봉인 해제까지 남은 시간</div>
-          <div className="pop-up-date" style={{ color: color[capsule_name] }}>
-            D-{time}
-          </div>
-        </div>
-        <div className="pop-up-button-container">
-          <button
-            className="pop-up-button"
-            style={{
-              background: color[capsule_name],
-              border: "none",
-            }}
-            onClick={() => {
-              setFinish(false);
-              setShowPopup(false);
-              window.location.href = "/mycapsule/";
-            }}
-          >
-            확인
-          </button>
-        </div>
-      </div>
-    ) : (
-      <div className="pop-up-screen">
-        <div className="pop-up-aniamtion">
-          <div className="pop-up-box">
-            <div
-              className="pop-up-title"
-              style={{ color: color[capsule_name] }}
-            >
-              타임캡슐 봉인
-            </div>
-            <div className="pop-up-content" style={{ fontWeight: "bold" }}>
-              2024년 12월 30일까지
-            </div>
-            <div className="pop-up-content">열람 및 수정이 불가능합니다.</div>
-            <div className="pop-up-content">확정하시겠습니까?</div>
-          </div>
-          <div className="pop-up-button-container">
-            <button
-              className="pop-up-button"
-              style={{
-                background: "none",
-                border: "1px solid #fff",
-              }}
-              onClick={() => setShowPopup(false)}
-            >
-              뒤로가기
-            </button>
-            <div style={{ width: "13px" }} />
-            <button
-              className="pop-up-button"
-              style={{
-                background: color[capsule_name],
-                border: "none",
-              }}
-              onClick={() => {
-                insertCapsuleData();
-                setFinish(true);
-              }}
-            >
-              봉인하기
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={`write-capsule background-${capsule_name}`}>
@@ -314,4 +143,183 @@ function WriteCapsule() {
     </div>
   );
 }
+
+function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
+  const [finish, setFinish] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [user, setUser] = useState({
+    id: "",
+    nickname: "",
+    userId: "",
+  });
+  const color = {
+    goals: "#F285A8",
+    memory: "#7C6EE0",
+    letter: "#42BCBC",
+  };
+  const time = dayjs("2024-12-31").diff(dayjs(), "day");
+  const supabaseClient = useSupabaseClient();
+  const navigate = useNavigate();
+
+  async function checkLogin() {
+    const authInfo = await supabaseClient.auth.getSession();
+    const session = authInfo.data.session;
+
+    if (session == null) {
+      navigate("/login");
+    }
+  }
+
+  async function getUserData() {
+    await supabaseClient.auth.getUser().then(async (value) => {
+      if (value.data?.user) {
+        const { data: userData, error } = await supabaseClient
+          .from("users")
+          .select()
+          .eq("user_id", value.data.user.id);
+        if (error) {
+          console.log(error);
+        } else {
+          setUser({
+            id: userData[0].id,
+            nickname: userData[0].nickname,
+            userId: userData[0].user_id,
+          });
+        }
+      }
+    });
+  }
+  const insertCapsuleData = async () => {
+    if (image.length == 0) {
+      const { capsuleInsertError } = await supabaseClient
+        .from("capsules")
+        .insert([
+          {
+            user_id: user.userId,
+            title: title,
+            content: content,
+            type: capsule_name,
+          },
+        ]);
+      if (capsuleInsertError) console.log(capsuleInsertError);
+    } else {
+      const imagePath = [];
+      for (let i = 0; i < image.length; i++) {
+        const file = image[i];
+        const filename = `${uuidv4()}/${file.name}`;
+        const { data, imageInsertError } = await supabaseClient.storage
+          .from("images")
+          .upload(filename, file, {
+            cacheControl: "3600",
+            upsert: false,
+          });
+        if (data) {
+          imagePath.push(data.path);
+        }
+        if (imageInsertError) console.log(imageInsertError);
+      }
+      const { capsuleInsertError } = await supabaseClient
+        .from("capsules")
+        .insert([
+          {
+            user_id: user.userId,
+            title: title,
+            content: content,
+            type: capsule_name,
+            imagePath: imagePath,
+          },
+        ]);
+      if (capsuleInsertError) console.log(capsuleInsertError);
+    }
+  };
+
+  useEffect(() => {
+    checkLogin();
+    getUserData();
+  }, [supabaseClient]);
+
+  return finish ? (
+    isLoaded ? (
+      <LoadingCircle />
+    ) : (
+      //  <div className="pop-up-screen">
+      //     <Circles color={color[capsule_name]} />
+      //  </div>
+      <div className="pop-up-screen">
+        <div className="pop-up-box">
+          <div className="pop-up-title" style={{ color: color[capsule_name] }}>
+            타임캡슐 봉인 완료!
+          </div>
+          <div className="pop-up-content">봉인 해제까지 남은 시간</div>
+          <div className="pop-up-date" style={{ color: color[capsule_name] }}>
+            D-{time}
+          </div>
+        </div>
+        <div className="pop-up-button-container">
+          <button
+            className="pop-up-button"
+            style={{
+              background: color[capsule_name],
+              border: "none",
+            }}
+            onClick={() => {
+              setFinish(false);
+              setShowPopup(false);
+              window.location.href = "/mycapsule/";
+            }}
+          >
+            확인
+          </button>
+        </div>
+      </div>
+    )
+  ) : (
+    <div className="pop-up-screen">
+      <div className="pop-up-aniamtion">
+        <div className="pop-up-box">
+          <div className="pop-up-title" style={{ color: color[capsule_name] }}>
+            타임캡슐 봉인
+          </div>
+          <div className="pop-up-content" style={{ fontWeight: "bold" }}>
+            2024년 12월 30일까지
+          </div>
+          <div className="pop-up-content">열람 및 수정이 불가능합니다.</div>
+          <div className="pop-up-content">확정하시겠습니까?</div>
+        </div>
+        <div className="pop-up-button-container">
+          <button
+            className="pop-up-button"
+            style={{
+              background: "none",
+              border: "1px solid #fff",
+            }}
+            onClick={() => setShowPopup(false)}
+          >
+            뒤로가기
+          </button>
+          <div style={{ width: "13px" }} />
+          <button
+            className="pop-up-button"
+            style={{
+              background: color[capsule_name],
+              border: "none",
+            }}
+            onClick={async () => {
+              setFinish(true);
+              // after insert capsule data, set isLoaded to false
+              await insertCapsuleData().then(() => {
+                setTimeout(() => {
+                  setIsLoaded(false);
+                }, 1000);
+              });
+            }}
+          >
+            봉인하기
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default WriteCapsule;
