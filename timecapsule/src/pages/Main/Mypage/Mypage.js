@@ -23,10 +23,10 @@ const Mypage = () => {
             const session = authInfo.data.session;
 
             if (session == null) {
-                console.log('log in fail');
+                // console.log('log in fail');
                 navigate('/login');
             } else {
-                console.log('log in success');
+                // console.log('log in success');
             }
         }
         checkLogin();
@@ -42,7 +42,7 @@ const Mypage = () => {
                     // console.log('Supabase Data:', userData);
                     // console.log(value.data.user);
                     if (error) {
-                        console.log(error);
+                        // console.log(error);
                     } else {
                         setUser({
                             id: userData[0].id,
@@ -60,9 +60,9 @@ const Mypage = () => {
         try {
             const { error } = await supabaseClient.auth.signOut();
             if (error) {
-                console.error('Sign-out error:', error.message);
+                // console.error('Sign-out error:', error.message);
             } else {
-                console.log('Sign-out successful');
+                // console.log('Sign-out successful');
                 navigate('/login'); /* 로그인창으로 */
             }
         } catch (error) {

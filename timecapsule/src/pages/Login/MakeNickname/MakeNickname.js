@@ -73,7 +73,7 @@ const MakeNickname = () => {
           .select()
           .eq("user_id", value.data.user.id);
         if (error) {
-          console.log("error", error);
+        //   console.log("error", error);
         } else {
           setUser({
             id: value.data.user.id,

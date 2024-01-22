@@ -4,7 +4,7 @@ import loadingPillImg from "./img/loadingPill.png";
 const LoadingCircle = () => {
   return (
     <div className="loading-circle-container">
-      <div>
+      <div className="loading-img-div">
         <img
           className="loadingCircleImg"
           src={loadingCircleImg}

@@ -36,7 +36,7 @@ const Nickname = () => {
 					// console.log('Supabase Data:', userData);
 					// console.log(value.data.user);
 					if (error) {
-						console.log(error);
+						// console.log(error);
 					} else {
 						setUser({
 							id: userData[0].id,
@@ -64,9 +64,9 @@ const Nickname = () => {
 			.eq("user_id", user.userId);
 
 		if (error) {
-			console.error("Error updating nickname:", error.message);
+			// console.error("Error updating nickname:", error.message);
 		} else {
-			console.log("Nickname updated successfully");
+			// console.log("Nickname updated successfully");
 			// 다른 처리가 필요하면 여기에 추가
 		}
 	}

@@ -38,7 +38,7 @@ function useAuth() {
 
         // 오류가 발생하면 실패 함수를 실행, 아니면 성공 함수를 실행하고 사용자 데이터를 전달
         if (error) {
-          console.log(error);
+        //   console.log(error);
           getDataFailFunc();
         } else {
           getDataSuccessFunc(userData);

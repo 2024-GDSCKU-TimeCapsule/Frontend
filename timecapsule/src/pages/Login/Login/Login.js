@@ -38,12 +38,12 @@ const Login = () => {
         console.error("Kakao OAuth sign-in error:", error.message);
       } else {
         // console.log("Kakao OAuth sign-in successful:", data);
-        console.log("Kakao OAuth sign-in successful:");
+        // console.log("Kakao OAuth sign-in successful:");
       }
 
       handlePostLogin(user);
     } catch (error) {
-      console.error("Unexpected error during Kakao OAuth sign-in:", error);
+      // console.error("Unexpected error during Kakao OAuth sign-in:", error);
     }
   }
   async function signInWithGoogle() {
@@ -58,7 +58,7 @@ const Login = () => {
         console.error("Google OAuth sign-in error:", error.message);
       } else {
         // console.log("Google OAuth sign-in successful:", data);
-        console.log("Google OAuth sign-in successful");
+        // console.log("Google OAuth sign-in successful");
       }
       handlePostLogin(user);
     } catch (error) {
@@ -94,9 +94,9 @@ const Login = () => {
       const session = authInfo.data.session;
 
       if (session == null) {
-        console.log("로그인 해주세요");
+        // console.log("로그인 해주세요");
       } else {
-        console.log("이미 로그인 되었습니다");
+        // console.log("이미 로그인 되었습니다");
         navigate("/main");
       }
     }
@@ -110,7 +110,7 @@ const Login = () => {
             .select()
             .eq("user_id", value.data.user.id);
           if (error) {
-            console.log(error);
+            // console.log(error);
           } else {
             setUser({
               id: value.data.user.id,
