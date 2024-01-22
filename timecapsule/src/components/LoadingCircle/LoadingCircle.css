@@ -1,0 +1,65 @@
+body {
+  background-color: black;
+}
+
+@keyframes rotateCircle {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(-30deg); /* 좌측으로 30도 회전 */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(30deg); /* 우측으로 30도 회전 */
+  }
+}
+
+@keyframes rotatePill {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(-30deg); /* 좌측으로 30도 회전 */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(30deg); /* 우측으로 30도 회전 */
+  }
+}
+
+.loading-circle-container {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 100vh; /* 뷰포트의 전체 높이 */
+  width: 100vw; /* 뷰포트의 전체 너비 */
+}
+
+.loading-img-div {
+  position: relative;
+}
+
+.loadingCircleImg,
+.loadingPillImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loadingCircleImg {
+  width: 6.25rem;
+  animation: rotateCircle 1.5s ease-in-out infinite;
+}
+
+.loadingPillImg {
+  width: 3.75rem;
+  animation: rotatePill 2s ease-in-out infinite;
+}
