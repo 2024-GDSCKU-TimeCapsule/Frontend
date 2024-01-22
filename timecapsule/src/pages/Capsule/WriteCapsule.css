@@ -1,244 +1,244 @@
 .write-capsule {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: auto;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  min-height: 100vh;
 }
 
 .background-letter {
-	width: 100%;
-	background: linear-gradient(168deg, #c7e6ae 0%, #70d5e3 100%);
+  width: 100%;
+  background: linear-gradient(168deg, #c7e6ae 0%, #70d5e3 100%);
 }
 
 .background-goals {
-	width: 100%;
-	background: linear-gradient(168deg, #9185ef 0%, #fa9da8 100%);
+  width: 100%;
+  background: linear-gradient(168deg, #9185ef 0%, #fa9da8 100%);
 }
 
 .background-memory {
-	width: 100%;
-	background: linear-gradient(168deg, #ee91b0 0%, #fbf6b8 100%);
+  width: 100%;
+  background: linear-gradient(168deg, #ee91b0 0%, #fbf6b8 100%);
 }
 
 .write-field {
-	display: flex;
-	height: auto;
-	min-height: 60vh;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	padding: 24px;
-	margin-top: 12px;
-	margin-left: 20px;
-	margin-right: 20px;
-	background: #fff;
-	border-radius: 24px 22px 200px 200px;
-	opacity: 0.95;
+  display: flex;
+  height: auto;
+  min-height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  margin-top: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: #fff;
+  border-radius: 24px 22px 200px 200px;
+  opacity: 0.95;
 }
 
 .write-capsule-container {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	justify-content: space-between;
-	height: auto;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
 }
 
 .title-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .capsule-title-write {
-	width: 100%;
-	font-family: Noto Sans KR;
-	font-style: normal;
-	font-size: 14px;
-	font-weight: 700;
-	line-height: 150%;
-	color: #000000;
-	border: 0px;
-	resize: none;
+  width: 100%;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+  color: #000000;
+  border: 0px;
+  resize: none;
 }
 
 .capsule-content {
-	width: 100%;
-	color: var(--black, #050505);
-	text-align: justify;
-	font-family: Noto Sans KR;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 350;
-	line-height: 200%;
-	padding: 0;
-	border: 0px;
-	margin-bottom: 20px;
-	resize: none;
+  width: 100%;
+  color: var(--black, #050505);
+  text-align: justify;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 200%;
+  padding: 0;
+  border: 0px;
+  margin-bottom: 20px;
+  resize: none;
 }
 
 .upload-image {
-	width: 100%; /* Adjust the width as needed */
-	height: auto; /* Maintain aspect ratio */
-	display: block;
-	margin-bottom: 10px;
+  width: 100%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin-bottom: 10px;
 }
 
 .image-container {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .delete-image-button {
-	width: 1.5rem;
-	height: 1.5rem;
-	padding: 0;
-	position: absolute;
-	font-size: 20px;
-	font-weight: bold;
-	top: 10px;
-	right: 10px;
-	color: #fff;
-	border: 2px solid #fff;
-	border-radius: 50%;
-	cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
 
-	text-align: center;
-	vertical-align: middle;
+  text-align: center;
+  vertical-align: middle;
 }
 .add-image-button {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border: none;
-	border-radius: 50%;
-	background: none;
-	width: auto;
-	height: auto;
-	cursor: pointer;
-	padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  padding: 8px;
 }
 
 .submit-button {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border: none;
-	background: none;
-	width: auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	cursor: pointer;
-	font-family: Noto Sans KR;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  width: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .pop-up-screen {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 @keyframes riseFromBottom {
-	from {
-		transform: translateY(100%); /* Start from the bottom */
-	}
-	to {
-		transform: translateY(0); /* Move to the top */
-	}
+  from {
+    transform: translateY(100%); /* Start from the bottom */
+  }
+  to {
+    transform: translateY(0); /* Move to the top */
+  }
 }
 
 .pop-up-aniamtion {
-	animation: riseFromBottom 0.5s;
+  animation: riseFromBottom 0.5s;
 }
 
 .pop-up-component {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pop-up-box {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	width: 293px;
-	height: 159px;
-	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
-	background: #fff;
-	border-radius: 22px;
-	z-index: 101;
+  width: 293px;
+  height: 159px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border-radius: 22px;
+  z-index: 101;
 }
 
 .pop-up-title {
-	text-align: center;
-	font-family: Noto Sans KR;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 150%;
-	margin-bottom: 18px;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  margin-bottom: 18px;
 }
 
 .pop-up-content {
-	color: #000;
-	text-align: center;
-	font-family: Noto Sans KR;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 150%;
+  color: #000;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
 }
 
 .pop-up-date {
-	opacity: 0.7;
-	font-family: Noto Sans KR;
-	font-size: 28px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 150%;
-	letter-spacing: 2.8px;
+  opacity: 0.7;
+  font-family: Noto Sans KR;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 2.8px;
 }
 
 .pop-up-button-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-top: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 14px;
 }
 
 .pop-up-button {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 140px;
-	height: 39px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 39px;
 
-	border-radius: 22px;
-	cursor: pointer;
-	color: #fff;
-	font-family: Noto Sans KR;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 150%;
+  border-radius: 22px;
+  cursor: pointer;
+  color: #fff;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
 }

@@ -230,11 +230,3 @@ div {
   line-height: 150%; /* 18px */
   border: none;
 }
-
-.loadingCircle-background {
-  width: 100%;
-  min-height: 100vh;
-  background-image: url(./img2/main-background.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
