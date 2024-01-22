@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
+import { Circles } from "react-loader-spinner";
 
 import { ReactComponent as Lock } from "./images/lock.svg";
 import { ReactComponent as AddImage } from "./images/image.svg";
@@ -149,6 +150,7 @@ function WriteCapsule() {
 
 function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 	const [finish, setFinish] = useState(false);
+	const [isLoaded, setIsLoaded] = useState(true);
 	const [user, setUser] = useState({
 		id: "",
 		nickname: "",
@@ -241,39 +243,47 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 	}, [supabaseClient]);
 
 	return finish ? (
-		<div className="pop-up-screen">
-			<div className="pop-up-box">
-				<div
-					className="pop-up-title"
-					style={{ color: color[capsule_name] }}
-				>
-					타임캡슐 봉인 완료!
+		isLoaded ? (
+			<div className="pop-up-screen">
+				<Circles color={color[capsule_name]} />
+			</div>
+		) : (
+			<div className="pop-up-screen">
+				<div className="pop-up-box">
+					<div
+						className="pop-up-title"
+						style={{ color: color[capsule_name] }}
+					>
+						타임캡슐 봉인 완료!
+					</div>
+					<div className="pop-up-content">
+						봉인 해제까지 남은 시간
+					</div>
+					<div
+						className="pop-up-date"
+						style={{ color: color[capsule_name] }}
+					>
+						D-{time}
+					</div>
 				</div>
-				<div className="pop-up-content">봉인 해제까지 남은 시간</div>
-				<div
-					className="pop-up-date"
-					style={{ color: color[capsule_name] }}
-				>
-					D-{time}
+				<div className="pop-up-button-container">
+					<button
+						className="pop-up-button"
+						style={{
+							background: color[capsule_name],
+							border: "none",
+						}}
+						onClick={() => {
+							setFinish(false);
+							setShowPopup(false);
+							window.location.href = "/mycapsule/";
+						}}
+					>
+						확인
+					</button>
 				</div>
 			</div>
-			<div className="pop-up-button-container">
-				<button
-					className="pop-up-button"
-					style={{
-						background: color[capsule_name],
-						border: "none",
-					}}
-					onClick={() => {
-						setFinish(false);
-						setShowPopup(false);
-						window.location.href = "/mycapsule/";
-					}}
-				>
-					확인
-				</button>
-			</div>
-		</div>
+		)
 	) : (
 		<div className="pop-up-screen">
 			<div className="pop-up-aniamtion">
@@ -313,9 +323,14 @@ function PopUpComponent({ capsule_name, title, content, setShowPopup, image }) {
 							background: color[capsule_name],
 							border: "none",
 						}}
-						onClick={() => {
-							insertCapsuleData();
+						onClick={async () => {
 							setFinish(true);
+							// after insert capsule data, set isLoaded to false
+							await insertCapsuleData().then(() => {
+								setTimeout(() => {
+									setIsLoaded(false);
+								}, 1000);
+							});
 						}}
 					>
 						봉인하기
