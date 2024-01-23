@@ -20,7 +20,7 @@ const PolicyFile = () => {
           behavior: "smooth", // 스크롤 이동 방식을 부드럽게 설정
         });
       } else {
-        navigate("/policy");
+        navigate("/policy2");
       }
       return newCount;
     });
