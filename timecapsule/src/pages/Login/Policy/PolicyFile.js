@@ -5,26 +5,31 @@ import { useNavigate } from "react-router-dom";
 
 const PolicyFile = () => {
   const [clickCount, setClickCount] = useState(0);
+  const totalClicks = 3; // 전체 클릭 횟수
   const maxClicks = 2;
   const navigate = useNavigate();
 
   const handleScroll = () => {
-    // 내리기 횟수 제한
-    // 현재 클릭 횟수 업데이트
     setClickCount((prevCount) => {
       const newCount = prevCount + 1;
-      if (newCount <= maxClicks) {
-        // 스무스 스크롤 옵션을 사용하여 페이지를 내립니다.
+
+      if (newCount < totalClicks) {
+        // 전체 문서 높이를 계산합니다.
+        const documentHeight = document.documentElement.scrollHeight;
+        // 스크롤을 전체 높이의 1/3씩 이동시킵니다.
         window.scrollBy({
-          top: window.innerHeight * 1.2, // Y축 방향으로 이동할 거리
-          behavior: "smooth", // 스크롤 이동 방식을 부드럽게 설정
+          top: documentHeight / totalClicks,
+          behavior: "smooth",
         });
       } else {
+        // 세 번째 클릭 후에는 지정된 경로로 이동합니다.
         navigate("/policy2");
       }
+
       return newCount;
     });
   };
+
   return (
     <div>
       <button className="scrollButton" onClick={handleScroll}>
