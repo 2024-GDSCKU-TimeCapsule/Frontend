@@ -134,8 +134,28 @@ const Login = () => {
   }, []);
 
   const openInBrowser = () => {
-    //현재 URL을 기본 브라우저에서 새 탭으로 열기
-    window.open(window.location.href, "_blank").focus();
+    // //현재 URL을 기본 브라우저에서 새 탭으로 열기
+    // window.open(window.location.href, "_blank").focus();
+
+    // Web Share API를 지원하는지 확인
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "웹사이트 공유하기", // 공유될 제목 (선택사항)
+          url: window.location.href, // 현재 페이지의 URL
+        })
+        .then(() => {
+          console.log("공유 성공!");
+        })
+        .catch((error) => {
+          console.error("공유 중 에러 발생:", error);
+        });
+    } else {
+      // Web Share API를 지원하지 않는 경우의 대체 처리
+      alert(
+        "공유하기 기능을 지원하지 않는 브라우저입니다. URL을 복사하여 사용하세요."
+      );
+    }
   };
   return (
     <div className="componentBackground">
