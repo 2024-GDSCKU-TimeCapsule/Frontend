@@ -146,7 +146,7 @@ const Login = () => {
     if (navigator.share) {
       navigator
         .share({
-          title: "웹사이트 공유하기", // 공유될 제목 (선택사항)
+          title: "TIMECAPSULE", // 공유될 제목 (선택사항)
           url: window.location.href, // 현재 페이지의 URL
         })
         .then(() => {
@@ -156,15 +156,25 @@ const Login = () => {
           console.error("공유 중 에러 발생:", error);
         });
     } else {
-      // Web Share API를 지원하지 않는 경우의 대체 처리
-      alert(
-        "공유하기 기능을 지원하지 않는 브라우저입니다. URL을 복사하여 사용하세요."
-      );
+      // Web Share API를 지원하지 않는 경우 자동으로 클립보드에 URL 복사
+
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          alert(
+            "URL이 클립보드에 복사되었습니다.\n크롬, 사파리 등 기본 브라우저에서 붙여넣기 해주세요 :)"
+          );
+        })
+        .catch((error) => {
+          alert(
+            "클립보드 복사에 실패했습니다.\nURL을 직접 복사하여 크롬, 사파리 등 기본 브라우저에서 접속해주세요 :)"
+          );
+        });
     }
   };
   return (
     <div className="componentBackground">
-      {isWebView ? (
+      {!isWebView ? (
         <>
           <div className="webview-alert-div">
             <div className="webview-alert-text">
