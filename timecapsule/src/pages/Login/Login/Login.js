@@ -134,7 +134,7 @@ const Login = () => {
       setWebViewType("카카오톡");
     } else if (userAgent.includes("instagram")) {
       setIsWebView(true);
-      setWebViewType("카카오톡");
+      setWebViewType("인스타그램");
     }
   }, []);
 
