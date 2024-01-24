@@ -22,6 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const dday = leftdays();
+  const [isWebView, setIsWebView] = useState(false);
 
   //소셜 로그인(카카오, 구글)
   async function signInWithKakao() {
@@ -34,12 +35,12 @@ const Login = () => {
         // },
       });
 
-      if (error) {
-        console.error("Kakao OAuth sign-in error:", error.message);
-      } else {
-        // console.log("Kakao OAuth sign-in successful:", data);
-        // console.log("Kakao OAuth sign-in successful:");
-      }
+      // if (error) {
+      //   // console.error("Kakao OAuth sign-in error:", error.message);
+      // } else {
+      //   // console.log("Kakao OAuth sign-in successful:", data);
+      //   // console.log("Kakao OAuth sign-in successful:");
+      // }
 
       handlePostLogin(user);
     } catch (error) {
@@ -54,15 +55,15 @@ const Login = () => {
         //   redirectTo: process.env.REACT_APP_FRONTEND_REDIRECT_URL,
         // },
       });
-      if (error) {
-        console.error("Google OAuth sign-in error:", error.message);
-      } else {
-        // console.log("Google OAuth sign-in successful:", data);
-        // console.log("Google OAuth sign-in successful");
-      }
+      // if (error) {
+      //   // console.error("Google OAuth sign-in error:", error.message);
+      // } else {
+      //   // console.log("Google OAuth sign-in successful:", data);
+      //   // console.log("Google OAuth sign-in successful");
+      // }
       handlePostLogin(user);
     } catch (error) {
-      console.error("Unexpected error during Google OAuth sign-in:", error);
+      // console.error("Unexpected error during Google OAuth sign-in:", error);
     }
   }
 
@@ -125,8 +126,36 @@ const Login = () => {
     getUserData();
   }, [supabaseClient]);
 
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.includes("kakaotalk") || userAgent.includes("instagram")) {
+      setIsWebView(true);
+    }
+  }, []);
+
+  const openInBrowser = () => {
+    //현재 URL을 기본 브라우저에서 새 탭으로 열기
+    window.open(window.location.href, "_blank").focus();
+  };
   return (
     <div className="componentBackground">
+      {isWebView ? (
+        <>
+          <div className="webview-alert-div">
+            <div className="webview-alert-text">
+              카카오톡 또는 인스타그램 웹뷰에서 접속하셨습니다.
+              <br />
+              최적의 사용 경험을 위해 기본 브라우저에서 열어주세요 !
+            </div>
+            <div className="webview-alert-button-div">
+              <button className="webview-alert-button">열기</button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+
       <div id="page">
         <img src={image13} id="image-13" alt="capsule-1" />
         <img src={image12} id="image-12" alt="capsule-2" />
