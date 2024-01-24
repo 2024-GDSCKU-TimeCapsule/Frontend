@@ -10,8 +10,6 @@ import kakaoLoginImg from "./img/kakaoLoginImg.png";
 import googleLoginImg from "./img/googleLoginImg.svg";
 
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
