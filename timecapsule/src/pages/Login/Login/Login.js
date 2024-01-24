@@ -23,6 +23,7 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const dday = leftdays();
   const [isWebView, setIsWebView] = useState(false);
+  const [webViewType, setWebViewType] = useState("");
 
   //소셜 로그인(카카오, 구글)
   async function signInWithKakao() {
@@ -128,8 +129,12 @@ const Login = () => {
 
   useEffect(() => {
     const userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.includes("kakaotalk") || userAgent.includes("instagram")) {
+    if (userAgent.includes("kakaotalk")) {
       setIsWebView(true);
+      setWebViewType("카카오톡");
+    } else if (userAgent.includes("instagram")) {
+      setIsWebView(true);
+      setWebViewType("카카오톡");
     }
   }, []);
 
@@ -163,7 +168,7 @@ const Login = () => {
         <>
           <div className="webview-alert-div">
             <div className="webview-alert-text">
-              카카오톡 또는 인스타그램 웹뷰에서 접속하셨습니다.
+              {webViewType} 웹뷰 접속시 구글 로그인이 안될 수 있습니다.
               <br />
               최적의 사용 경험을 위해 기본 브라우저에서 열어주세요 !
             </div>
