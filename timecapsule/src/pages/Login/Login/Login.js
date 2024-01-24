@@ -148,7 +148,9 @@ const Login = () => {
               최적의 사용 경험을 위해 기본 브라우저에서 열어주세요 !
             </div>
             <div className="webview-alert-button-div">
-              <button className="webview-alert-button">열기</button>
+              <button className="webview-alert-button" onClick={openInBrowser}>
+                열기
+              </button>
             </div>
           </div>
         </>
