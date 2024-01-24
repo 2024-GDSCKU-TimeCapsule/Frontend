@@ -174,7 +174,7 @@ const Login = () => {
   };
   return (
     <div className="componentBackground">
-      {!isWebView ? (
+      {isWebView ? (
         <>
           <div className="webview-alert-div">
             <div className="webview-alert-text">
